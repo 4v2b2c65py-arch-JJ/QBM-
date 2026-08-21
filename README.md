@@ -168,3 +168,4 @@ Default rules:
 - Dream engine: 500 calls / 60s, burst 30
 
 Custom rules can be added via `rate_limiter.add_rule()`.
+# HAP_YB-RDY
