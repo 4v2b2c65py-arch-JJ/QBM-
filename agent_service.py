@@ -7,7 +7,10 @@ macOS launchd service entry point for boot-persistent agentic sync.
 from __future__ import annotations
 
 import asyncio
+import os
+import re
 import signal
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -16,6 +19,27 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from orchestrator.agentic_sync import orchestrator
 from orchestrator.incognito_missions import incognito_mission_runner
+
+_AGENT_DISABLED = {"0", "false", "no", "off", ""}
+
+
+def agent_autonomy_enabled() -> bool:
+    """Pause the autonomous agent while the user is active (so it stops
+    generating its own inputs); resume in the background when idle."""
+    raw = os.environ.get("AGENT_AUTONOMY")
+    if raw is not None and raw != "":
+        return raw.lower() not in _AGENT_DISABLED
+    try:
+        out = subprocess.run(["ioreg", "-c", "IOHIDSystem"],
+                             capture_output=True, text=True, timeout=3).stdout
+        m = re.search(r'"HIDIdleTime"\s*=\s*(\d+)', out)
+        if m:
+            idle_s = int(m.group(1)) / 1_000_000_000
+            threshold = float(os.environ.get("AGENT_IDLE_THRESHOLD_SECONDS", "300"))
+            return idle_s >= threshold
+    except Exception:
+        pass
+    return True
 
 
 class Agent:
@@ -32,12 +56,19 @@ class Agent:
         print(f"agent: version={status.get('version')}")
         print(f"agent: boot_count={status.get('boot_count')}")
 
-        print("agent: starting incognito solo mission runner")
-        incognito_mission_runner.start()
-        print("agent: incognito solo mission runner started")
+        if agent_autonomy_enabled():
+            print("agent: starting incognito solo mission runner")
+            incognito_mission_runner.start()
+            print("agent: incognito solo mission runner started")
+        else:
+            print("agent: autonomy paused (user active or AGENT_AUTONOMY=0) "
+                  "- incognito missions deferred")
 
     async def heartbeat(self) -> None:
         print("agent: heartbeat")
+        if not agent_autonomy_enabled():
+            print("agent: autonomous sync paused (user active)")
+            return
         try:
             result = orchestrator.sync(direction="bidirectional")
             print(f"agent: sync status={result.get('status')} changes={result.get('changes_count')}")
@@ -49,7 +80,10 @@ class Agent:
 
     async def shutdown(self) -> None:
         print("agent: shutting down cleanly")
-        incognito_mission_runner.stop()
+        try:
+            incognito_mission_runner.stop()
+        except Exception:
+            pass
         print("agent: incognito solo mission runner stopped")
 
     async def run(self) -> None:

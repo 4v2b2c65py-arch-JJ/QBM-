@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.being.omega.prime</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/jjmarte/delta-stream/qb_protocol/.venv/bin/python3</string>
+        <string>/Users/jjmarte/delta-stream/qb_protocol/being/run_being.py</string>
+        <string>run</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/jjmarte/delta-stream/qb_protocol</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>PYTHONUNBUFFERED</key>
+        <string>1</string>
+        <key>AI_MODE_ENABLED</key>
+        <string>true</string>
+        <key>AI_MODEL_PROVIDER</key>
+        <string>local</string>
+        <key>AI_MODEL_PATH</key>
+        <string>/Users/jjmarte/delta-stream/qb_protocol/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf</string>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/jjmarte/Library/Logs/being_omega_prime.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/jjmarte/Library/Logs/being_omega_prime.err.log</string>
+</dict>
+</plist>

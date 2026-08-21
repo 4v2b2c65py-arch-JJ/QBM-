@@ -132,7 +132,7 @@ class CrossPlatformDeployer:
             steps.append("python_dependencies_installed")
 
         try:
-            subprocess.run([str(venv_path / "bin" / "python3"), str(self.repo_path / "agent.py"), "install"], capture_output=True, timeout=60)
+            subprocess.run([str(venv_path / "bin" / "python3"), str(self.repo_path / "agent_service.py"), "install"], capture_output=True, timeout=60)
             services_started += 1
             steps.append("agent_service_installed")
         except Exception:
@@ -186,7 +186,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart={venv_path}/bin/python3 {self.repo_path}/agent.py run
+ExecStart={venv_path}/bin/python3 {self.repo_path}/agent_service.py run
 WorkingDirectory={self.repo_path}
 Restart=always
 RestartSec=5
