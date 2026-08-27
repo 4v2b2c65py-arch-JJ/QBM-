@@ -14,10 +14,13 @@ from .acceleration import ComputationalAcceleration
 from .entropy import EntropyInducer
 from .subspace import SubspaceLaw
 from .inducer import TrainingInducers
+from .integration import TrainingDataIntegrator, training_integrator
 
 __all__ = [
     "TrainingInducers",
     "ComputationalAcceleration",
     "EntropyInducer",
     "SubspaceLaw",
+    "TrainingDataIntegrator",
+    "training_integrator",
 ]

@@ -1,0 +1,571 @@
+[
+  {
+    "subject": "C:\\Users\\JJ\\AppData\\Roaming\\LM Studio",
+    "kind": "model_store",
+    "trigger_type": "valley",
+    "field_value": -6.0,
+    "pace": 0.0002841044686223661,
+    "prior_pace": 0.0002841044686223661,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_model_store",
+      "has_evidence",
+      "has_bytes"
+    ]
+  },
+  {
+    "subject": "pwsh",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": 0.0007790144529625278,
+    "pace": 0,
+    "prior_pace": 0.0001988731280356563,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "python",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -34.77972283005106,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "node_repl",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -8.386493506493506,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "node_repl",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -297.1004329004329,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -1.1171989204077446,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "cmd",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -1.6970529084158417,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "cmd",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -1.093904702970297,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -25.25357142857143,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.19290465631929046,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "codex",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -2.027972027972028,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.7333333333333333,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -7.270833333333333,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.4982078853046595,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ChatGPT",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -209.75615297235896,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "mscopilot_proxy",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.18503843196152833,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "pythonw",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -4.1476127378822705,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "pythonw",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.19514311351662436,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "python",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -246.775,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "m365copilot_autostarter",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.13103896474308044,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "OpenConsole",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -158.81728395061728,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "OpenConsole",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -2.3524904214559386,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "cmd",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -36.95,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "figma_agent",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.18917736664693924,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "powershell",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -42.39836734693878,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "ArmourySwAgent",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.06931318802451535,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "NVIDIA Web Helper",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -2.46390977443609,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "WindowsTerminal",
+    "kind": "process",
+    "trigger_type": "peak",
+    "field_value": -0.169998166147075,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "cmd",
+    "kind": "process",
+    "trigger_type": "valley",
+    "field_value": -10533377.732933233,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_process",
+      "has_evidence",
+      "has_threads",
+      "has_pid",
+      "has_working_set"
+    ]
+  },
+  {
+    "subject": "C:\\Users\\JJ\\AppData\\Local\\Ollama",
+    "kind": "model_store",
+    "trigger_type": "peak",
+    "field_value": -0.2714791166730825,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_model_store",
+      "has_evidence",
+      "has_bytes"
+    ]
+  },
+  {
+    "subject": "C:\\Users\\JJ\\.ollama",
+    "kind": "model_store",
+    "trigger_type": "valley",
+    "field_value": -0.2835427573257382,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_time",
+      "has_metrics",
+      "is_model_store",
+      "has_evidence",
+      "has_bytes"
+    ]
+  },
+  {
+    "subject": "QuantumStorageService",
+    "kind": "quantum_claimed_service",
+    "trigger_type": "peak",
+    "field_value": -0.0784313725490196,
+    "pace": 0,
+    "prior_pace": 0,
+    "interval_ms": 0,
+    "flags": [
+      "has_metrics",
+      "is_quantum_claimed",
+      "has_evidence",
+      "has_finding",
+      "has_status",
+      "is_stopped"
+    ]
+  }
+]

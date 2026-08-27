@@ -1,0 +1,65 @@
+{
+  "entity_registration": {
+    "legal_business_name": "JHAN JHONNIEL FLORES MARTE",
+    "doing_business_as": "ManaCiel",
+    "physical_address": {
+      "street": "213 Lawrence Dr",
+      "city": "Berkeley Heights",
+      "state": "NJ",
+      "zip": "07922",
+      "country": "USA"
+    },
+    "start_date": "2026-08-27",
+    "start_year": 2026,
+    "state_of_incorporation": "Florida",
+    "entity_type": "Sole Proprietorship",
+    "status": "Active"
+  },
+  "documents_required": {
+    "state_of_incorporation": {
+      "description": "Proof of Florida incorporation/formation",
+      "provided": true,
+      "document_ids": ["DOC-001", "DOC-002", "DOC-005", "DOC-006"]
+    },
+    "legal_name_and_state": {
+      "description": "Legal Business Name AND State of Incorporation",
+      "provided": true,
+      "document_ids": ["DOC-002", "DOC-006"]
+    },
+    "start_year": {
+      "description": "Legal Business Name AND Start Year",
+      "provided": true,
+      "document_ids": ["DOC-005", "DOC-006"]
+    },
+    "legal_name_and_address": {
+      "description": "Legal Business Name AND Physical Address",
+      "provided": true,
+      "document_ids": ["DOC-003", "DOC-006"]
+    },
+    "doing_business_as": {
+      "description": "Legal Business Name AND Doing Business As Name",
+      "provided": true,
+      "document_ids": ["DOC-004", "DOC-006"]
+    }
+  },
+  "naics_codes": {
+    "primary": {
+      "code": "541715",
+      "description": "Research and Development in the Physical, Engineering, and Sciences"
+    },
+    "secondary": [
+      {"code": "22111", "description": "Electric Power Generation"},
+      {"code": "541512", "description": "Computer Systems Design Services"},
+      {"code": "541713", "description": "Research and Development in Nanotechnology"}
+    ]
+  },
+  "contact_information": {
+    "entity_administrator": "JHAN JHONNIEL FLORES MARTE",
+    "email": "jhan.flores@icloud.com"
+  },
+  "metadata": {
+    "generated_date": "2026-08-27T04:32:00Z",
+    "version": "1.0",
+    "purpose": "SAM.gov Entity Registration"
+  }
+}

@@ -1070,8 +1070,16 @@ def ai_query(body: AIQueryRequest):
         return {"error": "ai_mode_unavailable"}
     if not body.prompt:
         raise HTTPException(status_code=400, detail="prompt_required")
-    result = gpt_layer.query(body.prompt, max_tokens=body.max_tokens, temperature=body.temperature)
-    return result
+    try:
+        from qb_protocol.ai.celestial_ai_orchestrator import celestial_ai_orchestrator
+        result = celestial_ai_orchestrator.dispatch_query(
+            prompt=body.prompt,
+            max_tokens=body.max_tokens,
+            temperature=body.temperature,
+        )
+        return result
+    except Exception as exc:
+        return {"error": str(exc)}
 
 
 @app.post("/ai/chat")
@@ -1099,6 +1107,123 @@ def ai_history(limit: int = 100):
     if not HAS_AI:
         return {"error": "ai_mode_unavailable"}
     return {"queries": gpt_layer.get_query_history(limit=limit)}
+
+
+@app.get("/ai/hardware-layer")
+def ai_hardware_layer():
+    try:
+        from qb_protocol.ai.hardware_layer import mac_hardware_layer
+        return mac_hardware_layer.get_status()
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.post("/ai/hardware-layer/expand")
+def ai_hardware_expand():
+    try:
+        from qb_protocol.ai.hardware_layer import mac_hardware_layer
+        return mac_hardware_layer.expand_power_envelope()
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.get("/ai/ensemble/status")
+def ai_ensemble_status():
+    try:
+        from qb_protocol.ai.model_ensemble import model_ensemble
+        return model_ensemble.get_status()
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.post("/ai/ensemble/infer")
+def ai_ensemble_infer(body: Dict[str, Any] = Body(...)):
+    try:
+        from qb_protocol.ai.model_ensemble import model_ensemble
+        result = model_ensemble.ensemble_infer(
+            prompt=body.get("prompt", ""),
+            max_tokens=int(body.get("max_tokens", 512)),
+            temperature=float(body.get("temperature", 0.8)),
+        )
+        return result
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.post("/ai/celestial/dispatch")
+def ai_celestial_dispatch(body: Dict[str, Any] = Body(...)):
+    try:
+        from qb_protocol.ai.celestial_ai_orchestrator import celestial_ai_orchestrator
+        result = celestial_ai_orchestrator.dispatch_query(
+            prompt=body.get("prompt", ""),
+            max_tokens=int(body.get("max_tokens", 512)),
+            temperature=float(body.get("temperature", 0.8)),
+        )
+        return result
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.get("/ai/celestial/status")
+def ai_celestial_status():
+    try:
+        from qb_protocol.ai.celestial_ai_orchestrator import celestial_ai_orchestrator
+        return celestial_ai_orchestrator.get_status()
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.post("/ai/cpu-boost/trigger")
+def ai_cpu_boost_trigger(body: Dict[str, Any] = Body(...)):
+    try:
+        from qb_protocol.ai.cpu_boost import cpu_boost_controller
+        result = cpu_boost_controller.trigger_boost(
+            model_freq_hz=float(body.get("model_freq_hz", 0.0))
+        )
+        return result
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.get("/ai/cpu-boost/status")
+def ai_cpu_boost_status():
+    try:
+        from qb_protocol.ai.cpu_boost import cpu_boost_controller
+        return cpu_boost_controller.get_status()
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.get("/manaciel/doe-facility/status")
+def manaciel_doe_facility_status():
+    try:
+        from qb_protocol.being.chip.doe_facility import DOEFacilityController
+        controller = DOEFacilityController()
+        return {
+            "facility": controller.facility.design_facility(),
+            "opportunities": controller.facility.get_doe_opportunities(),
+            "lab_partnerships": controller.facility.get_national_lab_partnerships(),
+            "returns": controller.facility.calculate_returns(),
+            "planetary_capabilities": controller.planetary.get_capabilities(),
+            "planetary_roi": controller.planetary.calculate_planetary_roi(),
+            "sam_registration": controller.contracting.register_sam_gov(),
+            "genesis_application": controller.contracting.apply_genesis_mission(),
+            "sbir_application": controller.contracting.file_sbir(),
+        }
+    except Exception as exc:
+        return {"error": str(exc)}
+
+
+@app.post("/manaciel/doe-facility/email-status")
+def manaciel_doe_facility_email_status():
+    try:
+        from qb_protocol.being.chip.doe_facility import DOEFacilityController
+        controller = DOEFacilityController()
+        results = controller.execute_full_setup()
+        controller.send_status_email(results)
+        return {"status": "email_sent", "results": results}
+    except Exception as exc:
+        return {"error": str(exc)}
 
 
 @app.get("/evolution/status")

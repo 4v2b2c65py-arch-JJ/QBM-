@@ -1,0 +1,126 @@
+{
+  "started": "2026-08-26T23:03:18.499614",
+  "actions": [
+    {
+      "timestamp": "2026-08-26T23:03:18.499658",
+      "action": "full_setup",
+      "results": {
+        "attorney": {
+          "firm": "NK Patent Law",
+          "specialty": "Startup Patent Prosecution",
+          "url": "https://nkpatentlaw.com/practice-areas/startup-patent-attorney/",
+          "contact": "Available via website",
+          "relevance": "High - represents startups and emerging tech",
+          "status": "identified"
+        },
+        "patent": {
+          "title": "QBom Protocol: Quantum Bit Oscillation Manipulation for Energy Quantization",
+          "description": "A system and method for quantizing energy states using solar-torque coupling and Bitcoin-based frequency indexing for high-energy state production and planetary stabilization.",
+          "type": "Provisional",
+          "filing_date": "2026-08-26T23:03:18.499644",
+          "status": "prepared",
+          "next_steps": [
+            "Review by patent attorney",
+            "File with USPTO",
+            "Track examination"
+          ]
+        },
+        "compliance": {
+          "agencies": [
+            {
+              "name": "USPTO",
+              "purpose": "Patent filing",
+              "status": "pending",
+              "url": "https://www.uspto.gov"
+            },
+            {
+              "name": "SEC",
+              "purpose": "Investment compliance",
+              "status": "pending",
+              "url": "https://www.sec.gov"
+            },
+            {
+              "name": "FinCEN",
+              "purpose": "Anti-money laundering",
+              "status": "pending",
+              "url": "https://www.fincen.gov"
+            },
+            {
+              "name": "IRS",
+              "purpose": "Tax compliance",
+              "status": "pending",
+              "url": "https://www.irs.gov"
+            }
+          ],
+          "timestamp": "2026-08-26T23:03:18.499649"
+        },
+        "investments": [
+          {
+            "company": "Commonwealth Fusion Systems",
+            "sector": "Fusion Energy",
+            "stage": "Series B+",
+            "theoretical_fit": "QBom protocol - compact fusion",
+            "investment_type": "Equity",
+            "contact": "Via PitchBook/Crunchbase"
+          },
+          {
+            "company": "Helion Energy",
+            "sector": "Pulsed Fusion",
+            "stage": "Series E",
+            "theoretical_fit": "QBom protocol - field-reversed configuration",
+            "investment_type": "Equity",
+            "contact": "Via PitchBook"
+          },
+          {
+            "company": "TAE Technologies",
+            "sector": "Aneutronic Fusion",
+            "stage": "Late stage",
+            "theoretical_fit": "Clean energy output",
+            "investment_type": "Equity",
+            "contact": "Via PitchBook"
+          },
+          {
+            "company": "First Solar (FSLR)",
+            "sector": "Solar Energy",
+            "stage": "Public",
+            "theoretical_fit": "Solar energy capture",
+            "investment_type": "Stock",
+            "contact": "Any brokerage"
+          }
+        ],
+        "networks": [
+          {
+            "name": "Angel Capital Association",
+            "url": "https://angelcapitalassociation.org",
+            "focus": "Angel investing best practices"
+          },
+          {
+            "name": "OpenVC",
+            "url": "https://www.openvc.app",
+            "focus": "Startup fundraising platform"
+          },
+          {
+            "name": "Angel Investors Network",
+            "url": "https://angelinvestorsnetwork.com",
+            "focus": "Angel investing news and deals"
+          }
+        ],
+        "pitch": {
+          "company": "Commonwealth Fusion Systems",
+          "prepared_date": "2026-08-26T23:03:18.499655",
+          "pitch_elements": [
+            "Executive Summary",
+            "Problem Statement",
+            "Solution (QBom Protocol)",
+            "Market Size",
+            "Traction",
+            "Financial Projections",
+            "Team",
+            "Ask"
+          ],
+          "status": "draft"
+        }
+      }
+    }
+  ]
+}

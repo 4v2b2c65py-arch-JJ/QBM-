@@ -1,0 +1,713 @@
+[
+  {
+    "at": "2026-08-22T22:36:39.032598Z",
+    "kind": "model_store",
+    "subject": "C:\\Users\\JJ\\AppData\\Roaming\\LM Studio",
+    "metrics": {
+      "bytes": 108458937
+    },
+    "evidence": [
+      "Directory metadata only; model file contents were not read."
+    ],
+    "id": "983411ea36e26493"
+  },
+  {
+    "at": "2026-08-22T19:35:18.8648879-04:00",
+    "kind": "process",
+    "subject": "pwsh",
+    "metrics": {
+      "pid": 18372,
+      "threads": 26,
+      "workingSetBytes": 98291712
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe"
+    ],
+    "id": "159c3fc805e6815a"
+  },
+  {
+    "at": "2026-08-22T19:35:16.1222313-04:00",
+    "kind": "process",
+    "subject": "python",
+    "metrics": {
+      "pid": 27596,
+      "threads": 4,
+      "workingSetBytes": 42606592
+    },
+    "evidence": [
+      "Executable path unavailable from telemetry."
+    ],
+    "id": "e3b5320bd8358661"
+  },
+  {
+    "at": "2026-08-22T19:32:53.0730223-04:00",
+    "kind": "process",
+    "subject": "codex-code-mode-host",
+    "metrics": {
+      "pid": 13980,
+      "threads": 16,
+      "workingSetBytes": 18980864
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\resources\\codex-code-mode-host.exe"
+    ],
+    "id": "408102aabf1e4b68"
+  },
+  {
+    "at": "2026-08-22T19:32:45.0011602-04:00",
+    "kind": "process",
+    "subject": "node_repl",
+    "metrics": {
+      "pid": 22964,
+      "threads": 16,
+      "workingSetBytes": 9404416
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\cd454f7c85348168\\bin\\node_repl.exe"
+    ],
+    "id": "634d7ba5523e7a72"
+  },
+  {
+    "at": "2026-08-22T19:32:44.6162213-04:00",
+    "kind": "process",
+    "subject": "node_repl",
+    "metrics": {
+      "pid": 13996,
+      "threads": 16,
+      "workingSetBytes": 9449472
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\cd454f7c85348168\\bin\\node_repl.exe"
+    ],
+    "id": "52750d07129b9d76"
+  },
+  {
+    "at": "2026-08-22T19:27:01.4653216-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 10568,
+      "threads": 12,
+      "workingSetBytes": 87924736
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "d9bb803a028ba899"
+  },
+  {
+    "at": "2026-08-22T19:25:33.7075285-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 2628,
+      "threads": 1,
+      "workingSetBytes": 6893568
+    },
+    "evidence": [
+      "Executable path observed: C:\\WINDOWS\\system32\\cmd.exe"
+    ],
+    "id": "4f4d0eeae4ab7163"
+  },
+  {
+    "at": "2026-08-22T19:25:20.7796272-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 25596,
+      "threads": 3,
+      "workingSetBytes": 6918144
+    },
+    "evidence": [
+      "Executable path observed: C:\\WINDOWS\\system32\\cmd.exe"
+    ],
+    "id": "7316758307cdeab5"
+  },
+  {
+    "at": "2026-08-22T19:24:17.1405732-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 12556,
+      "threads": 14,
+      "workingSetBytes": 34455552
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "5c7d6ae48c57101c"
+  },
+  {
+    "at": "2026-08-22T19:24:16.6369348-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 14724,
+      "threads": 29,
+      "workingSetBytes": 232202240
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "03b4548e17c629c5"
+  },
+  {
+    "at": "2026-08-22T19:24:09.8715022-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 21988,
+      "threads": 23,
+      "workingSetBytes": 361566208
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "345e875b116b503c"
+  },
+  {
+    "at": "2026-08-22T19:24:02.041725-04:00",
+    "kind": "process",
+    "subject": "codex",
+    "metrics": {
+      "pid": 23488,
+      "threads": 92,
+      "workingSetBytes": 142307328
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\resources\\codex.exe"
+    ],
+    "id": "5d0de50d20ce9a71"
+  },
+  {
+    "at": "2026-08-22T19:24:01.4474108-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 8028,
+      "threads": 11,
+      "workingSetBytes": 31674368
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "474998b9035dac5b"
+  },
+  {
+    "at": "2026-08-22T19:24:01.3818655-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 11164,
+      "threads": 21,
+      "workingSetBytes": 55480320
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "4d5cc8113d0138c0"
+  },
+  {
+    "at": "2026-08-22T19:24:01.3697413-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 26452,
+      "threads": 51,
+      "workingSetBytes": 156880896
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "0d895ca84e1ea457"
+  },
+  {
+    "at": "2026-08-22T19:24:00.6713027-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 4692,
+      "threads": 5,
+      "workingSetBytes": 8527872
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "5c32035986fe0fca"
+  },
+  {
+    "at": "2026-08-22T19:24:00.6402996-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 12576,
+      "threads": 7,
+      "workingSetBytes": 10874880
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "b63e29944769c671"
+  },
+  {
+    "at": "2026-08-22T19:24:00.5010027-04:00",
+    "kind": "process",
+    "subject": "ChatGPT",
+    "metrics": {
+      "pid": 20992,
+      "threads": 58,
+      "workingSetBytes": 358023168
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.818.5229.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe"
+    ],
+    "id": "230c0550b8811335"
+  },
+  {
+    "at": "2026-08-22T19:19:23.5183955-04:00",
+    "kind": "process",
+    "subject": "mscopilot_proxy",
+    "metrics": {
+      "pid": 16280,
+      "threads": 2,
+      "workingSetBytes": 18534400
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files (x86)\\Microsoft\\Copilot\\Application\\mscopilot_proxy.exe"
+    ],
+    "id": "97dee226ac21b88f"
+  },
+  {
+    "at": "2026-08-22T19:10:50.9934-04:00",
+    "kind": "process",
+    "subject": "node",
+    "metrics": {
+      "pid": 18964,
+      "threads": 33,
+      "workingSetBytes": 105009152
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\libs\\node.exe"
+    ],
+    "id": "42a90ab02612e4b6"
+  },
+  {
+    "at": "2026-08-22T18:40:44.8865581-04:00",
+    "kind": "process",
+    "subject": "pythonw",
+    "metrics": {
+      "pid": 7032,
+      "threads": 2,
+      "workingSetBytes": 27230208
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe"
+    ],
+    "id": "290ea78108740c84"
+  },
+  {
+    "at": "2026-08-22T18:40:05.2996595-04:00",
+    "kind": "process",
+    "subject": "pythonw",
+    "metrics": {
+      "pid": 28912,
+      "threads": 1,
+      "workingSetBytes": 16179200
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\Programs\\Python\\Python311\\pythonw.exe"
+    ],
+    "id": "38c3dcb33c214e28"
+  },
+  {
+    "at": "2026-08-22T18:38:36.4600128-04:00",
+    "kind": "process",
+    "subject": "python",
+    "metrics": {
+      "pid": 27024,
+      "threads": 1,
+      "workingSetBytes": 8331264
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
+    ],
+    "id": "ed3d0298aa595684"
+  },
+  {
+    "at": "2026-08-22T18:38:36.4305247-04:00",
+    "kind": "process",
+    "subject": "python",
+    "metrics": {
+      "pid": 13884,
+      "threads": 13,
+      "workingSetBytes": 22040576
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
+    ],
+    "id": "b4a5d537f1e0b423"
+  },
+  {
+    "at": "2026-08-22T18:37:58.6721565-04:00",
+    "kind": "process",
+    "subject": "m365copilot_autostarter",
+    "metrics": {
+      "pid": 22344,
+      "threads": 3,
+      "workingSetBytes": 9203712
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.MicrosoftOfficeHub_19.2607.58021.0_x64__8wekyb3d8bbwe\\m365copilot_autostarter.exe"
+    ],
+    "id": "5894ae2dc3b34416"
+  },
+  {
+    "at": "2026-08-22T18:36:54.3516082-04:00",
+    "kind": "process",
+    "subject": "OpenConsole",
+    "metrics": {
+      "pid": 23388,
+      "threads": 6,
+      "workingSetBytes": 9670656
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.23.12811.0_x64__8wekyb3d8bbwe\\OpenConsole.exe"
+    ],
+    "id": "c3c8b8e41a3f820d"
+  },
+  {
+    "at": "2026-08-22T18:36:54.321398-04:00",
+    "kind": "process",
+    "subject": "UnifiedCosmicSystem",
+    "metrics": {
+      "pid": 12144,
+      "threads": 4,
+      "workingSetBytes": 8986624
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\QuantumEnergyService\\UnifiedCosmicSystem.exe"
+    ],
+    "id": "147555e7c9deb180"
+  },
+  {
+    "at": "2026-08-22T18:36:53.0931998-04:00",
+    "kind": "process",
+    "subject": "OpenConsole",
+    "metrics": {
+      "pid": 23276,
+      "threads": 6,
+      "workingSetBytes": 9879552
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.23.12811.0_x64__8wekyb3d8bbwe\\OpenConsole.exe"
+    ],
+    "id": "7e94d15be5f5e4d1"
+  },
+  {
+    "at": "2026-08-22T18:36:53.0579044-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 23216,
+      "threads": 1,
+      "workingSetBytes": 4173824
+    },
+    "evidence": [
+      "Executable path observed: C:\\WINDOWS\\system32\\cmd.exe"
+    ],
+    "id": "4b1a43f6c7fe7981"
+  },
+  {
+    "at": "2026-08-22T18:36:33.1041351-04:00",
+    "kind": "process",
+    "subject": "OpenConsole",
+    "metrics": {
+      "pid": 22052,
+      "threads": 6,
+      "workingSetBytes": 9310208
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.23.12811.0_x64__8wekyb3d8bbwe\\OpenConsole.exe"
+    ],
+    "id": "af7363a837934c03"
+  },
+  {
+    "at": "2026-08-22T18:36:33.0606202-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 22256,
+      "threads": 1,
+      "workingSetBytes": 4460544
+    },
+    "evidence": [
+      "Executable path observed: C:\\WINDOWS\\system32\\cmd.exe"
+    ],
+    "id": "1d700bdfcaef1d2c"
+  },
+  {
+    "at": "2026-08-22T18:36:29.5277099-04:00",
+    "kind": "process",
+    "subject": "figma_agent",
+    "metrics": {
+      "pid": 21796,
+      "threads": 36,
+      "workingSetBytes": 14082048
+    },
+    "evidence": [
+      "Executable path observed: C:\\Users\\JJ\\AppData\\Local\\FigmaAgent\\figma_agent.exe"
+    ],
+    "id": "91c185e2f037b4f2"
+  },
+  {
+    "at": "2026-08-22T18:36:18.499473-04:00",
+    "kind": "process",
+    "subject": "OpenConsole",
+    "metrics": {
+      "pid": 8976,
+      "threads": 6,
+      "workingSetBytes": 10334208
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.23.12811.0_x64__8wekyb3d8bbwe\\OpenConsole.exe"
+    ],
+    "id": "e1b5d105cd8d183c"
+  },
+  {
+    "at": "2026-08-22T18:36:18.4642979-04:00",
+    "kind": "process",
+    "subject": "powershell",
+    "metrics": {
+      "pid": 17648,
+      "threads": 10,
+      "workingSetBytes": 63397888
+    },
+    "evidence": [
+      "Executable path observed: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    ],
+    "id": "1e5ec010aeb055dd"
+  },
+  {
+    "at": "2026-08-22T18:35:52.4954649-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 20476,
+      "threads": 1,
+      "workingSetBytes": 2633728
+    },
+    "evidence": [
+      "Executable path observed: C:\\WINDOWS\\system32\\cmd.exe"
+    ],
+    "id": "e5bf5047f3c84975"
+  },
+  {
+    "at": "2026-08-22T18:35:52.4508113-04:00",
+    "kind": "process",
+    "subject": "cncmd",
+    "metrics": {
+      "pid": 20416,
+      "threads": 1,
+      "workingSetBytes": 856064
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\AMD\\CNext\\CNext\\cncmd.exe"
+    ],
+    "id": "8b82c642a2cede28"
+  },
+  {
+    "at": "2026-08-22T18:35:48.8690445-04:00",
+    "kind": "process",
+    "subject": "ArmourySwAgent",
+    "metrics": {
+      "pid": 19396,
+      "threads": 5,
+      "workingSetBytes": 2125824
+    },
+    "evidence": [
+      "Executable path unavailable from telemetry."
+    ],
+    "id": "06c9db02353fb1e6"
+  },
+  {
+    "at": "2026-08-22T18:35:44.1539565-04:00",
+    "kind": "process",
+    "subject": "MSI.TerminalServer",
+    "metrics": {
+      "pid": 13088,
+      "threads": 8,
+      "workingSetBytes": 9023488
+    },
+    "evidence": [
+      "Executable path unavailable from telemetry."
+    ],
+    "id": "24e94f1931f4cd50"
+  },
+  {
+    "at": "2026-08-22T18:35:31.045366-04:00",
+    "kind": "process",
+    "subject": "NVIDIA Web Helper",
+    "metrics": {
+      "pid": 5000,
+      "threads": 81,
+      "workingSetBytes": 2793472
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files (x86)\\NVIDIA Corporation\\NvNode\\NVIDIA Web Helper.exe"
+    ],
+    "id": "3a66f1c61e1fa20c"
+  },
+  {
+    "at": "2026-08-22T18:35:30.7797313-04:00",
+    "kind": "process",
+    "subject": "WindowsTerminal",
+    "metrics": {
+      "pid": 12376,
+      "threads": 22,
+      "workingSetBytes": 102711296
+    },
+    "evidence": [
+      "Executable path observed: C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.23.12811.0_x64__8wekyb3d8bbwe\\WindowsTerminal.exe"
+    ],
+    "id": "34808ddd68ccd042"
+  },
+  {
+    "at": "2026-08-22T18:35:29.8522058-04:00",
+    "kind": "process",
+    "subject": "pythonw",
+    "metrics": {
+      "pid": 6124,
+      "threads": 15,
+      "workingSetBytes": 10792960
+    },
+    "evidence": [
+      "Executable path unavailable from telemetry."
+    ],
+    "id": "90f7868a91918f0a"
+  },
+  {
+    "at": "2026-08-22T18:35:29.8215244-04:00",
+    "kind": "process",
+    "subject": "cmd",
+    "metrics": {
+      "pid": 12292,
+      "threads": 1,
+      "workingSetBytes": 3203072
+    },
+    "evidence": [
+      "Executable path unavailable from telemetry."
+    ],
+    "id": "5708e65d420044a8"
+  },
+  {
+    "at": "2026-06-02T16:27:13.5621295Z",
+    "kind": "model_store",
+    "subject": "C:\\Users\\JJ\\AppData\\Local\\Ollama",
+    "metrics": {
+      "bytes": 2136987557
+    },
+    "evidence": [
+      "Directory metadata only; model file contents were not read."
+    ],
+    "id": "df75af823e40d1ec"
+  },
+  {
+    "at": "2025-12-22T22:01:40.6603323Z",
+    "kind": "model_store",
+    "subject": "C:\\Users\\JJ\\.ollama",
+    "metrics": {
+      "bytes": 12984985284
+    },
+    "evidence": [
+      "Directory metadata only; model file contents were not read."
+    ],
+    "id": "adce8753cd30be7e"
+  },
+  {
+    "at": "2025-10-07T20:21:12.5566957Z",
+    "kind": "model_store",
+    "subject": "C:\\Users\\JJ\\.cache\\huggingface",
+    "metrics": {
+      "bytes": 12613429037
+    },
+    "evidence": [
+      "Directory metadata only; model file contents were not read."
+    ],
+    "id": "0787f8946c563c23"
+  },
+  {
+    "at": null,
+    "kind": "quantum_claimed_service",
+    "subject": "CosmicQubitWindowsService",
+    "status": "Running",
+    "metrics": {
+      "processId": 6132
+    },
+    "evidence": [
+      "Cosmic Qubit Management Service",
+      "\"c:\\QuantumEnergyService\\CosmicQubitService.exe\""
+    ],
+    "finding": "Name/path claims quantum functionality. This is not evidence of physical quantum computation.",
+    "id": "cfe04cbbc493a2de"
+  },
+  {
+    "at": null,
+    "kind": "quantum_claimed_service",
+    "subject": "QuantumAcceleratorService",
+    "status": "Running",
+    "metrics": {
+      "processId": 6156
+    },
+    "evidence": [
+      "Quantum Accelerator Service",
+      "c:\\temp\\QuantumAcceleratorService.exe"
+    ],
+    "finding": "Name/path claims quantum functionality. This is not evidence of physical quantum computation.",
+    "id": "41d01353d382fb7c"
+  },
+  {
+    "at": null,
+    "kind": "quantum_claimed_service",
+    "subject": "QuantumEnergyService",
+    "status": "Stopped",
+    "metrics": {
+      "processId": 0
+    },
+    "evidence": [
+      "Quantum Energy Management Service",
+      "C:\\QuantumEnergyService\\bin\\Release\\net8.0-windows\\QuantumEnergyService.exe"
+    ],
+    "finding": "Name/path claims quantum functionality. This is not evidence of physical quantum computation.",
+    "id": "2bcd83963f5b3e1a"
+  },
+  {
+    "at": null,
+    "kind": "quantum_claimed_service",
+    "subject": "QuantumRealityService",
+    "status": "Running",
+    "metrics": {
+      "processId": 6856
+    },
+    "evidence": [
+      "Quantum Reality Braker Service",
+      "\"N:\\realitbraker\\output\\service\\QuantumRealityService.exe\""
+    ],
+    "finding": "Name/path claims quantum functionality. This is not evidence of physical quantum computation.",
+    "id": "c83d214bff482165"
+  },
+  {
+    "at": null,
+    "kind": "quantum_claimed_service",
+    "subject": "QuantumStorageService",
+    "status": "Stopped",
+    "metrics": {
+      "processId": 0
+    },
+    "evidence": [
+      "Quantum Storage Optimization Service",
+      "C:\\temp\\QuantumStorageService.exe"
+    ],
+    "finding": "Name/path claims quantum functionality. This is not evidence of physical quantum computation.",
+    "id": "3a14cb5c5eacdacd"
+  }
+]

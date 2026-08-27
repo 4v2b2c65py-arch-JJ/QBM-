@@ -184,7 +184,7 @@ class ModelDeployer:
 
         # --- Step 2: AI CONTROL configuration ---
         # Apply deadass boost: MX-FP4 precision for 16x ops/watt
-        tensor_sample = self._artifact_to_tensor(src_path, src_type)
+        tensor_sample = self._artifact_to_tensor(src_path, src_type).to_list()
         ai_cfg: Dict[str, Any] = {}
         if self._chip is not None:
             boost = self._chip.deadass_boost(tensor_sample, target_precision="mx_fp4")
@@ -240,39 +240,71 @@ class ModelDeployer:
                  deployed.effective_tflops, deployed.profic_score)
         return deployed
 
-    def _artifact_to_tensor(self, path: str, src_type: str) -> List[float]:
-        """Convert an artifact path to a tensor vector for chip processing."""
+    def _artifact_to_tensor(self, path: str, src_type: str) -> UnifiedTensor:
+        """Convert an artifact to a UnifiedTensor — cached + unified across daemons."""
+        from qb_protocol.being.chip.tensor import UnifiedTensor
+        cache_key = hashlib.sha256(f"{path}:{src_type}:{Path(path).stat().st_mtime}".encode()).hexdigest()[:16]
+
+        cached = UnifiedTensor._tensor_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
         if src_type in ("lora_workflow",):
             try:
                 data = json.loads(Path(path).read_text())
-                # Extract node weights as tensor
                 nodes = data.get("nodes", [])
-                return [float(hash(n.get("name", str(i))) % 1000 / 1000.0)
-                        for i, n in enumerate(nodes[:64])]
+                vec = [float(hash(n.get("name", str(i))) % 1000 / 1000.0)
+                       for i, n in enumerate(nodes[:64])]
             except Exception:
-                pass
+                vec = [0.5] * 64
         elif src_type == "gguf":
-            # Use file size as a deterministic tensor
             size = Path(path).stat().st_size
-            return [(size >> (i * 8) & 0xFF) / 255.0 for i in range(8)]
+            vec = [(size >> (i * 8) & 0xFF) / 255.0 for i in range(8)] + [0.0] * 56
         elif src_type == "lora_media":
-            # Use file hash as tensor
             h = hashlib.sha256(Path(path).read_bytes()).digest()
-            return [b / 255.0 for b in h[:64]]
-        return [0.5] * 64
+            vec = [b / 255.0 for b in h[:64]]
+        else:
+            vec = [0.5] * 64
+
+        ts = UnifiedTensor.from_text(str(vec), dims=64, origin="deployer")
+        UnifiedTensor._tensor_cache[cache_key] = ts
+        return ts
 
     def deploy_all(self) -> List[DeployedModel]:
-        """Discover, convert, and deploy all artifacts at peak caliber."""
+        """Discover, convert, and deploy all artifacts at peak caliber.
+
+        Uses artifact cache: only redeploys artifacts that changed since
+        the last cycle, minimizing CPU overhead for fastest uptime.
+        """
         artifacts = self.discover_artifacts()
         deployed = []
+        skipped = 0
+
         for art in artifacts:
+            # Cache key: artifact path + size + mtime — skip if unchanged
+            cache_key = hashlib.sha256(
+                f"{art['path']}:{art['size_bytes']}:{Path(art['path']).stat().st_mtime}".encode()
+            ).hexdigest()[:12]
+
+            if cache_key in self._deployed:
+                skipped += 1
+                continue
+
             try:
                 model = self.convert_artifact(art)
-                self._deployed[model.model_id] = model
+                self._deployed[cache_key] = model
                 deployed.append(model)
             except Exception as exc:
                 LOG.error("deployer: failed to deploy %s: %s", art["name"], exc)
-        LOG.info("deployer: deployed %d proficients", len(deployed))
+
+        status = f"deployed={len(deployed)} skipped={skipped}/{len(artifacts)}"
+        if deployed:
+            LOG.info("deployer: %s | %.1f TFLOPS total | profic avg=%.4f",
+                     status,
+                     sum(m.effective_tflops for m in self._deployed.values()),
+                     sum(m.profic_score for m in self._deployed.values()) / max(len(self._deployed), 1))
+        elif skipped:
+            LOG.debug("deployer: %s — all cached", status)
         return deployed
 
     def get_profic_status(self) -> Dict[str, Any]:

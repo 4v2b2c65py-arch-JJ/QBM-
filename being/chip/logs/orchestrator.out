@@ -1,0 +1,105 @@
+============================================================
+MANACIEL AUTONOMOUS ORCHESTRATOR
+============================================================
+Started: 2026-08-26 18:08:59
+Base Directory: /Users/jjmarte/delta-stream/qb_protocol
+Services: 4
+============================================================
+[Service] Failed to start fastapi: [Errno 2] No such file or directory: 'uvicorn'
+[Service] Started email_processor (PID: 84972)
+[Service] Started bitcoin_monitor (PID: 84973)
+[Service] Started security_scan (PID: 84974)
+
+[Cycle 2] 18:08:59
+  Data collected: 6 sources
+  Actions triggered: 0
+
+[Cycle 3] 18:13:59
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 85326)
+
+[Cycle 4] 18:19:00
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 85682)
+
+[Cycle 5] 18:24:01
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 86026)
+
+[Cycle 6] 18:29:02
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 86382)
+
+[Cycle 7] 18:34:03
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 86732)
+
+[Cycle 8] 18:39:04
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 87063)
+
+[Cycle 9] 18:44:05
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 87412)
+
+[Cycle 10] 18:49:06
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 87765)
+
+[Cycle 11] 18:54:07
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 88112)
+
+[Cycle 12] 18:59:08
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 88462)
+
+[Cycle 13] 19:04:30
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 88916)
+
+[Cycle 14] 19:09:31
+  Data collected: 6 sources
+  Actions triggered: 0
+  ⚠ email_processor crashed - restarting
+[Service] Stopped email_processor
+[Service] Started email_processor (PID: 89274)
+
+[Orchestrator] Shutting down...
+[Service] Stopped bitcoin_monitor
+[Service] Stopped security_scan
+[Service] Stopped email_processor
+[Orchestrator] Shutdown complete

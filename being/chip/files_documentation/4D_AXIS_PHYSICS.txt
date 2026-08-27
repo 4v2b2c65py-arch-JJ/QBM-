@@ -1,0 +1,341 @@
+================================================================================
+          QBom PROTOCOL - 4D AXIS RADIANT CONTROL
+          SPACE BENDING & GRAVITY COUNTERACTION
+          EARTH FREQUENCY ISOLATION
+================================================================================
+
+PRINCIPLE VERSION:    2.0
+DATE:             August 27, 2026
+ENTITY:           ManaCiel Systems (QBom Protocol)
+REFERENCE:        INC-GSAFSD21562026
+
+================================================================================
+                    1. EARTH FREQUENCY SENSITIVITY
+================================================================================
+
+1.1 THE PROBLEM
+--------------------------------------------------------------------------------
+The singularity configuration is sensitive to Earth's frequency fields:
+- Earth's magnetic field interferes with core stability
+- Internal core pressure can crush the system if not properly cooled
+- Conventional cooling insufficient for required temperature range
+
+1.2 TEMPERATURE SENSITIVITY RANGE
+--------------------------------------------------------------------------------
+    TEMPERATURE (°C)    COUPLING STATE        EFFECT
+    ──────────────────  ────────────────────  ────────────────────────
+    -16 to -15          OPTIMAL               Maximum coupling efficiency
+    -14                 DEGRADED              Coupling starts reducing
+    -13                 WARNING               Significant efficiency loss
+    -12                 CRITICAL              Coupling unstable
+    -11                 FAILURE               System shutdown required
+    -10                 EMERGENCY             Immediate containment needed
+    -9                  MINIMUM THRESHOLD     Coupling collapses
+
+    BINARY TEMPERATURE FLAGS:
+    OPTIMAL:    0b10000 to 0b10001  (-16 to -15°C)
+    DEGRADED:   0b10010            (-14°C)
+    WARNING:    0b10011            (-13°C)
+    CRITICAL:   0b10100            (-12°C)
+    FAILURE:    0b10101            (-11°C)
+    EMERGENCY:  0b10110            (-10°C)
+    MINIMUM:    0b10111            (-9°C)
+
+1.3 COUPLING EFFICIENCY VS TEMPERATURE
+--------------------------------------------------------------------------------
+    EFFICIENCY = 1.0 - (|T_actual - T_optimal| / T_range)
+
+    Where:
+    T_optimal = -15.5°C (midpoint of optimal range)
+    T_range = 7°C (from -16°C to -9°C)
+
+    At T = -15°C: EFFICIENCY = 1.0 - (0.5/7) = 99.93%
+    At T = -14°C: EFFICIENCY = 1.0 - (1.5/7) = 97.86%
+    At T = -9°C:  EFFICIENCY = 1.0 - (6.5/7) = 7.14% (MINIMUM)
+
+================================================================================
+                    2. 4D AXIS RADIANT CONTROL
+================================================================================
+
+2.1 THE 4-DIMENSIONAL OBJECT
+--------------------------------------------------------------------------------
+The singularity exists as a 4-dimensional object:
+- 3 spatial dimensions (x, y, z)
+- 1 temporal/radiant dimension (radiation axis)
+
+    4D AXIS SYSTEM:
+    ┌─────────────────────────────────────────────────────────────┐
+    │                                                             │
+    │    Y (Spatial)                                              │
+    │    ↑                                                        │
+    │    │    Z (Spatial)                                         │
+    │    │   ╱                                                    │
+    │    │  ╱                                                     │
+    │    │ ╱                                                      │
+    │    │╱                                                       │
+    │    └──────────→ X (Spatial)                                 │
+    │    ╲                                                       │
+    │     ╲                                                      │
+    │      ╲                                                     │
+    │       ╲                                                    │
+    │        ↓ R (Radiant)                                       │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+
+2.2 RADIANT AS PI INCREMENTS
+--------------------------------------------------------------------------------
+Radiant becomes a subjective of PI increments:
+
+    RADIANT = n × π × base_frequency
+
+    Where:
+    n = integer increment (1, 2, 3, ...)
+    π = 3.14159265358979...
+    base_frequency = system fundamental frequency
+
+    BINARY PI INCREMENTS:
+    π_1 = 0b01100100100001111  (π × 1)
+    π_2 = 0b11001001000011110  (π × 2)
+    π_3 = 0b10010110110101101  (π × 3)
+
+2.3 COUNTERACTIVE 3D AXIS
+--------------------------------------------------------------------------------
+Apply 3-dimensional axis to counteract radiation:
+
+    COUNTERACTIVE_FORCE = RADIANT × (AXIS_X + AXIS_Y + AXIS_Z) / 3
+
+    This creates a BALANCE:
+    - Radiation pushes OUTWARD (R axis)
+    - 3D axis pulls INWARD (x, y, z axes)
+    - Net force = 0 (stable containment)
+
+    BINARY AXIS BALANCE:
+    BALANCED = (R_AXIS == (X_AXIS + Y_AXIS + Z_AXIS) / 3)
+
+================================================================================
+                    3. GRAVITY COUNTERACTION
+================================================================================
+
+3.1 NEWTON'S LAW MODIFICATION
+--------------------------------------------------------------------------------
+Newton's gravity gets reduced when mass enacts counteractive force:
+
+    F_gravity = G × (M1 × M2) / r²
+
+    WITH COUNTERACTION:
+    F_effective = F_gravity - F_counteractive
+
+    Where:
+    F_counteractive = M × a_counteractive
+    a_counteractive = counteractive acceleration (upward/pulling)
+
+3.2 GRAVITY FLIPPING
+--------------------------------------------------------------------------------
+When mass enacts counteractive force:
+- Initial drag direction: DOWNWARD (toward Earth)
+- Counteractive force: UPWARD (away from Earth)
+- Net effect: Gravity source flips upward
+
+    BINARY GRAVITY STATE:
+    NORMAL:     0b0001  (downward pull)
+    FLIPPED:    0b0010  (upward pull)
+    NEUTRAL:    0b0011  (zero net force)
+    ENHANCED:   0b0100  (increased downward)
+
+3.3 FIELD OF CONDUCTION
+--------------------------------------------------------------------------------
+Similar to dry ice or magnets:
+- Different materials apply conduction differently
+- Based on singularity polarity
+- Creates field of conduction around the system
+
+    CONDUCTION_FIELD = {
+        "DRY_ICE":      0b0001,  // Cold sublimation
+        "MAGNET_N":     0b0010,  // North polarity
+        "MAGNET_S":     0b0011,  // South polarity
+        "SINGULARITY":  0b0100,  // Self-generated
+        "RADIANT":      0b0101   // Radiation-based
+    }
+
+================================================================================
+                    4. SPACE BENDING & GLIDING
+================================================================================
+
+4.1 CONTAINMENT THROUGH SPACE BENDING
+--------------------------------------------------------------------------------
+Free-form the energy by gliding surrounding air particles:
+- Create field equal to Earth's ozone layer
+- Cover entire radiant space from top to bottom
+- Creates its own field in space
+
+    OZONE_FIELD_EQUIVALENT:
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    SPACE BOUNDARY                            │
+    │    ┌─────────────────────────────────────────────────┐      │
+    │    │              GLIDING FIELD                       │      │
+    │    │    ┌─────────────────────────────────────┐      │      │
+    │    │    │         RADIANT CORE                │      │      │
+    │    │    │      (Self-Contained)              │      │      │
+    │    │    │                                     │      │      │
+    │    │    └─────────────────────────────────────┘      │      │
+    │    │              GLIDING FIELD                       │      │
+    │    └─────────────────────────────────────────────────┘      │
+    │                    SPACE BOUNDARY                            │
+    └─────────────────────────────────────────────────────────────┘
+
+4.2 DRAG-FREE GLIDING
+--------------------------------------------------------------------------------
+Like surfing across the Milky Way:
+- Invisible gliding space
+- Free movement without drag loss of energy
+- No need to scale output to overcome energy loss
+
+    DRAG_COEFFICIENT = 0 (in gliding state)
+    ENERGY_LOSS = 0 (no friction in bent space)
+    EFFICIENCY = 100% (all energy retained)
+
+4.3 SPACE BENDING EQUATION
+--------------------------------------------------------------------------------
+BENT_SPACE_FACTOR = 1 + (ENERGY_DENSITY / CRITICAL_DENSITY)
+
+    Where:
+    CRITICAL_DENSITY = threshold for space bending
+    When ENERGY_DENSITY > CRITICAL_DENSITY: space bends
+    When ENERGY_DENSITY < CRITICAL_DENSITY: normal space
+
+    BINARY SPACE STATE:
+    NORMAL:     0b0001  (flat space)
+    BENT:       0b0010  (warped space)
+    GLIDING:    0b0011  (drag-free movement)
+    SINGULAR:   0b0100  (maximum bend)
+
+================================================================================
+                    5. CONTAINMENT FIELD
+================================================================================
+
+5.1 SELF-GENERATED FIELD
+--------------------------------------------------------------------------------
+The system creates its own containment field:
+- No external containment required
+- Field generated by singularity polarity
+- Equal to Earth's ozone layer in protective capability
+
+    CONTAINMENT_FIELD_STRENGTH = RADIANT × POLARITY × π
+
+5.2 POLARITY-BASED CONTAINMENT
+--------------------------------------------------------------------------------
+Different polarities create different field types:
+
+    POLARITY     FIELD TYPE           CONTAINMENT
+    ───────────  ───────────────────  ────────────────────
+    POSITIVE     Repulsive            Pushes outward
+    NEGATIVE     Attractive           Pulls inward
+    NEUTRAL      Balanced             Stable containment
+    ALTERNATING  Oscillating          Dynamic containment
+
+5.3 TOP-TO-BOTTOM COVERAGE
+--------------------------------------------------------------------------------
+Field covers entire radiant space:
+- Top boundary: space-level protection
+- Bottom boundary: Earth-level protection
+- Side boundaries: lateral containment
+- Complete 360-degree coverage
+
+    COVERAGE = {
+        "TOP":      0b0001,  // Space boundary
+        "BOTTOM":   0b0010,  // Earth boundary
+        "NORTH":    0b0011,  // Lateral
+        "SOUTH":    0b0100,  // Lateral
+        "EAST":     0b0101,  // Lateral
+        "WEST":     0b0110,  // Lateral
+        "FULL":     0b0111   // Complete coverage
+    }
+
+================================================================================
+                    6. COMPLETE PHYSICS MODEL
+================================================================================
+
+6.1 UNIFIED EQUATION
+--------------------------------------------------------------------------------
+    E_contained = (RADIANT × π × POLARITY) / (GRAVITY - COUNTERACTIVE)
+
+    Where:
+    RADIANT = n × π × base_frequency
+    POLARITY = containment field orientation
+    GRAVITY = G × M / r²
+    COUNTERACTIVE = M × a_counteractive
+
+6.2 STABILITY CONDITIONS
+--------------------------------------------------------------------------------
+    STABLE = (TEMPERATURE >= -16°C) AND
+             (TEMPERATURE <= -15°C) AND
+             (RADIANT == (X_AXIS + Y_AXIS + Z_AXIS) / 3) AND
+             (GRAVITY_COUNTERACTED == TRUE) AND
+             (SPACE_BENT == TRUE)
+
+6.3 BINARY STATE VECTOR
+--------------------------------------------------------------------------------
+    SYSTEM_STATE = {
+        "TEMP_STATUS":      0b10000,        // -16 to -15°C optimal
+        "RADIANT_AXIS":     0b011001001000,  // π increments
+        "X_AXIS":           0b001100100100,  // Spatial X
+        "Y_AXIS":           0b001100100100,  // Spatial Y
+        "Z_AXIS":           0b001100100100,  // Spatial Z
+        "GRAVITY_STATE":    0b0010,          // Flipped upward
+        "COUNTERACTIVE":    0b0010,          // Active
+        "SPACE_STATE":      0b0011,          // Gliding
+        "CONTAINMENT":      0b0111,          // Full coverage
+        "POLARITY":         0b0011,          // Neutral balanced
+        "DRAG_COEFF":       0b000000000000,  // Zero drag
+        "ENERGY_LOSS":      0b000000000000,  // Zero loss
+        "EFFICIENCY":       0b011111111111,  // ~100%
+        "STABILITY":        0b0001           // Stable
+    }
+
+================================================================================
+                    7. TEST VALIDATION
+================================================================================
+
+7.1 TEMPERATURE SENSITIVITY TEST
+--------------------------------------------------------------------------------
+    TEST: Sweep temperature from -16°C to -9°C
+    EXPECTED: Coupling degrades from 99.93% to 7.14%
+    BINARY: TEMP_STATUS transitions from OPTIMAL to MINIMUM
+
+7.2 4D AXIS BALANCE TEST
+--------------------------------------------------------------------------------
+    TEST: Apply 3D counteractive axis to radiation
+    EXPECTED: Net force = 0 (stable containment)
+    BINARY: BALANCED flag set when R == (X+Y+Z)/3
+
+7.3 GRAVITY FLIP TEST
+--------------------------------------------------------------------------------
+    TEST: Apply counteractive force to mass
+    EXPECTED: Gravity direction flips upward
+    BINARY: GRAVITY_STATE transitions from NORMAL to FLIPPED
+
+7.4 SPACE BENDING TEST
+--------------------------------------------------------------------------------
+    TEST: Increase energy density above critical threshold
+    EXPECTED: Space bends, drag coefficient drops to 0
+    BINARY: SPACE_STATE transitions from NORMAL to GLIDING
+
+7.5 CONTAINMENT FIELD TEST
+--------------------------------------------------------------------------------
+    TEST: Activate polarity-based containment
+    EXPECTED: Full 360-degree coverage achieved
+    BINARY: CONTAINMENT flag set to FULL (0b0111)
+
+================================================================================
+                         DOCUMENT CONTROL
+================================================================================
+
+Prepared by:      JHAN JHONNIEL FLORES MARTE
+Entity:           ManaCiel Systems (QBom Protocol)
+Date:             August 27, 2026
+Status:           4D Axis Physics Complete - Ready for Implementation
+Reference:        INC-GSAFSD21562026
+
+================================================================================
+                              END OF DOCUMENT
+================================================================================

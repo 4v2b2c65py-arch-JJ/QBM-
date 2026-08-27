@@ -1,0 +1,57 @@
+                    SAM.GOV ENTITY REGISTRATION
+                         OFFICIAL APPLICATION
+================================================================
+
+SECTION 1: ENTITY INFORMATION
+--------------------------------------------------------------------------------
+Legal Business Name:    JHAN JHONNIEL FLORES MARTE
+Doing Business As:      ManaCiel
+Entity Type:            Sole Proprietorship
+
+SECTION 2: PHYSICAL ADDRESS
+--------------------------------------------------------------------------------
+Street Address:         213 Lawrence Dr
+City:                   Berkeley Heights
+State:                  NJ
+ZIP Code:               07922
+Country:                USA
+
+SECTION 3: BUSINESS DETAILS
+--------------------------------------------------------------------------------
+Start Date:             August 27, 2026
+Start Year:             2026
+State of Incorporation: Florida
+
+SECTION 4: NAICS CODES
+--------------------------------------------------------------------------------
+Primary NAICS:          541715 - Research and Development in Physical, 
+                        Engineering, and Sciences
+
+Secondary NAICS:        22111  - Electric Power Generation
+                        541512 - Computer Systems Design Services
+                        541713 - Research and Development in Nanotechnology
+
+SECTION 5: CONTACT INFORMATION
+--------------------------------------------------------------------------------
+Entity Administrator:   JHAN JHONNIEL FLORES MARTE
+Email:                  jhan.flores@icloud.com
+
+SECTION 6: DOCUMENT CHECKLIST
+--------------------------------------------------------------------------------
+[✓] State of Incorporation (Florida) - Documented
+[✓] Legal Business Name + State of Incorporation - Documented
+[✓] Start Year (2026) - Documented
+[✓] Legal Business Name + Physical Address - Documented
+[✓] Doing Business As (ManaCiel) - Documented
+
+SECTION 7: ACCEPTANCE OF TERMS
+--------------------------------------------------------------------------------
+By submitting this registration, the entity administrator certifies that:
+1. All information provided is true and accurate
+2. The entity will comply with all federal contracting regulations
+3. The entity will maintain current SAM.gov registration
+4. The entity will report any changes within 30 days
+
+================================================================
+                    END OF APPLICATION
+================================================================

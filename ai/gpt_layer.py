@@ -83,6 +83,8 @@ class GPTLayer:
         self.start_time = time.time()
         self._load_attempted = False
         self._load_lock = threading.Lock()
+        self._ensemble_models: List[Any] = []
+        self._ensemble_enabled = False
 
     def _load_model(self):
         if not AI_ENABLED:
@@ -101,26 +103,84 @@ class GPTLayer:
             if local_path and local_path.exists():
                 try:
                     from llama_cpp import Llama
-                    self.model = Llama(model_path=str(local_path), n_ctx=2048, n_threads=4)
+                    self.model = Llama(
+                        model_path=str(local_path),
+                        n_ctx=8192,
+                        n_threads=8,
+                        n_batch=512,
+                        use_mmap=True,
+                        use_mlock=False,
+                    )
                     self.model_path = str(local_path)
                     self.model_backend = "llama-cpp"
-                    LOG.info("Loaded TinyLlama model via llama-cpp-python from %s", local_path)
+                    LOG.info("Loaded TinyLlama model via llama-cpp-python from %s with max hardware config", local_path)
                 except Exception as e1:
                     LOG.warning("llama-cpp-python load failed: %s", e1)
                     try:
                         from ctransformers import AutoModelForCausalLM
-                        self.model = AutoModelForCausalLM.from_pretrained(str(local_path.parent), model_file=local_path.name, model_type="llama")
+                        self.model = AutoModelForCausalLM.from_pretrained(
+                            str(local_path.parent),
+                            model_file=local_path.name,
+                            model_type="llama",
+                            threads=8,
+                            batch_size=512,
+                            context_length=8192,
+                        )
                         self.model_path = str(local_path)
                         self.model_backend = "ctransformers"
-                        LOG.info("Loaded TinyLlama model via ctransformers from %s", local_path)
+                        LOG.info("Loaded TinyLlama model via ctransformers from %s with max hardware config", local_path)
                     except Exception as e2:
                         LOG.warning("ctransformers load failed: %s", e2)
                         self.model = None
                         self.model_backend = None
+                self._load_ensemble_models(str(local_path))
         except Exception as e:
             LOG.warning("Model load failed: %s", e)
             self.model = None
             self.model_backend = None
+
+    def _load_ensemble_models(self, model_path: str):
+        self._ensemble_models = []
+        configs = [
+            {"n_ctx": 4096, "n_threads": 4, "n_batch": 256, "temperature": 0.7},
+            {"n_ctx": 4096, "n_threads": 4, "n_batch": 256, "temperature": 0.9},
+            {"n_ctx": 2048, "n_threads": 8, "n_batch": 512, "temperature": 0.8},
+        ]
+        try:
+            from llama_cpp import Llama
+            backend = "llama-cpp"
+            loader = lambda mp, cfg: Llama(
+                model_path=mp,
+                n_ctx=cfg["n_ctx"],
+                n_threads=cfg["n_threads"],
+                n_batch=cfg["n_batch"],
+                use_mmap=True,
+                use_mlock=False,
+            )
+        except Exception:
+            try:
+                from ctransformers import AutoModelForCausalLM
+                backend = "ctransformers"
+                loader = lambda mp, cfg: AutoModelForCausalLM.from_pretrained(
+                    str(Path(mp).parent),
+                    model_file=Path(mp).name,
+                    model_type="llama",
+                    threads=cfg.get("n_threads", 4),
+                    batch_size=cfg.get("n_batch", 256),
+                    context_length=cfg.get("n_ctx", 4096),
+                )
+            except Exception as exc:
+                LOG.warning("Ensemble backend unavailable: %s", exc)
+                return
+        for i, cfg in enumerate(configs):
+            try:
+                m = loader(model_path, cfg)
+                self._ensemble_models.append({"model": m, "config": cfg, "id": f"ensemble_{i}", "backend": backend})
+            except Exception as exc:
+                LOG.warning("Ensemble model %d load failed: %s", i, exc)
+        if self._ensemble_models:
+            self._ensemble_enabled = True
+            LOG.info("Loaded %d ensemble model configurations via %s", len(self._ensemble_models), backend)
 
     def _download_from_s3(self) -> Optional[Path]:
         try:
@@ -250,6 +310,11 @@ class GPTLayer:
             system_prompt = self._get_system_prompt()
             formatted_prompt = f"<|system|>\n{system_prompt}</s>\n<|user|>\n{prompt}</s>\n<|assistant|>\n"
             backend = getattr(self, 'model_backend', None)
+            
+            ensemble_response = None
+            if self._ensemble_enabled and self._ensemble_models:
+                ensemble_response = self._query_ensemble(formatted_prompt, actual_max_tokens, actual_temperature)
+            
             if backend == "llama-cpp":
                 result = self.model(
                     formatted_prompt,
@@ -268,6 +333,12 @@ class GPTLayer:
                 provider = "ctransformers"
             else:
                 raise RuntimeError("No LLM backend loaded")
+            
+            if ensemble_response:
+                response_text = self._combine_responses(response_text, ensemble_response)
+                provider = f"{provider}+ensemble"
+                tokens = tokens + ensemble_response.get("tokens", 0)
+                latency = latency + ensemble_response.get("latency_ms", 0)
             
             query = AIQuery(
                 query_id=query_id,
@@ -305,6 +376,61 @@ class GPTLayer:
                 "timestamp": timestamp,
             }
 
+    def _query_ensemble(self, formatted_prompt: str, max_tokens: int, temperature: float) -> Optional[Dict[str, Any]]:
+        responses = []
+        total_latency = 0.0
+        total_tokens = 0
+        for entry in self._ensemble_models:
+            try:
+                start = time.time()
+                m = entry["model"]
+                cfg = entry["config"]
+                mid = entry["id"]
+                backend = entry.get("backend", "unknown")
+                if backend == "llama-cpp":
+                    result = m(
+                        formatted_prompt,
+                        max_tokens=max_tokens,
+                        temperature=cfg.get("temperature", temperature),
+                        stop=["</s>"],
+                    )
+                    text = result["choices"][0]["text"].strip()
+                    tok = result.get("usage", {}).get("total_tokens", len(text.split()))
+                elif backend == "ctransformers":
+                    text = m(formatted_prompt, max_new_tokens=max_tokens, temperature=cfg.get("temperature", temperature), stop=["</s>"])
+                    tok = len(text.split())
+                else:
+                    continue
+                latency = (time.time() - start) * 1000
+                responses.append({"id": mid, "text": text, "tokens": tok, "latency_ms": latency})
+                total_latency += latency
+                total_tokens += tok
+            except Exception as exc:
+                LOG.warning("Ensemble query failed for %s: %s", entry.get("id"), exc)
+        if not responses:
+            return None
+        return {
+            "responses": responses,
+            "tokens": total_tokens,
+            "latency_ms": total_latency,
+            "count": len(responses),
+        }
+
+    def _combine_responses(self, primary: str, ensemble: Dict[str, Any]) -> str:
+        responses = ensemble.get("responses", [])
+        if not responses:
+            return primary
+        parts = [primary] + [r["text"] for r in responses if r.get("text")]
+        seen = set()
+        unique_parts = []
+        for part in parts:
+            key = part.strip()
+            if key and key not in seen:
+                seen.add(key)
+                unique_parts.append(key)
+        combined = "\n".join(unique_parts)
+        return combined[:4096]
+
     def _simulated_response(self, prompt: str) -> str:
         prompt_lower = prompt.lower()
         if "hello" in prompt_lower or "hi" in prompt_lower:
@@ -327,6 +453,8 @@ class GPTLayer:
             "provider": AI_MODEL_PROVIDER,
             "query_count": len(self.queries),
             "uptime_seconds": time.time() - self.start_time,
+            "ensemble_enabled": getattr(self, '_ensemble_enabled', False),
+            "ensemble_models": len(getattr(self, '_ensemble_models', [])),
         }
 
     def get_query_history(self, limit: int = 100) -> List[Dict[str, Any]]:

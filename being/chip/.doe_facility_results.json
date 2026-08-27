@@ -1,0 +1,198 @@
+{
+  "doe_opportunities": [
+    {
+      "program": "Genesis Mission (DOE)",
+      "focus": "Fusion + AI Integration",
+      "funding": "Up to $50M per project",
+      "deadline": "Rolling",
+      "url": "https://www.energy.gov/genesis-mission",
+      "fit": "Perfect - QBom protocol merges fusion with AI"
+    },
+    {
+      "program": "INFUSE (Innovation Network for Fusion Energy)",
+      "focus": "Public-private partnerships",
+      "funding": "$500K-$2M per award",
+      "deadline": "Quarterly",
+      "url": "https://infuse.ornl.gov",
+      "fit": "High - national lab access"
+    },
+    {
+      "program": "FES-ASCR Joint Program",
+      "focus": "Fusion + Advanced Computing",
+      "funding": "Varies",
+      "deadline": "Annual",
+      "url": "https://science.osti.gov/fes",
+      "fit": "Perfect - AI for fusion control"
+    },
+    {
+      "program": "SBIR/STTR (Small Business Innovation)",
+      "focus": "Fusion technology",
+      "funding": "$200K-$1.5M",
+      "deadline": "Quarterly",
+      "url": "https://www.sbir.gov",
+      "fit": "High - QBom patent pending"
+    }
+  ],
+  "lab_partnerships": [
+    {
+      "lab": "Oak Ridge National Lab (ORNL)",
+      "facility": "FRONTIER (Exascale Computing)",
+      "opportunity": "AI model training for fusion control",
+      "contact": "ornl.gov"
+    },
+    {
+      "lab": "Argonne National Lab",
+      "facility": "Aurora (AI Supercomputer)",
+      "opportunity": "Plasma modeling + AI",
+      "contact": "anl.gov"
+    },
+    {
+      "lab": "Princeton Plasma Physics Lab (PPPL)",
+      "facility": "PPPL Compute Cluster",
+      "opportunity": "Real-time fusion control",
+      "contact": "pppl.gov"
+    },
+    {
+      "lab": "Lawrence Berkeley Lab",
+      "facility": "NERSC (HPC Center)",
+      "opportunity": "Fusion simulation + AI",
+      "contact": "nersc.gov"
+    }
+  ],
+  "facility_design": {
+    "name": "ManaCiel QBom Fusion-AI Integration Facility",
+    "location": "TBD - DOE National Laboratory Partnership",
+    "components": {
+      "fusion_reactor": {
+        "type": "Compact Tokamak / Field-Reversed Configuration",
+        "power_output": "500 MW thermal",
+        "fuel": "Deuterium-Tritium",
+        "status": "Design phase"
+      },
+      "ai_computing": {
+        "type": "Exascale HPC Cluster",
+        "gpu_count": 10000,
+        "ai_models": [
+          "Plasma control (real-time)",
+          "Fusion prediction",
+          "Energy optimization",
+          "Planetary stabilization"
+        ],
+        "status": "Procurement ready"
+      },
+      "energy_storage": {
+        "type": "Superconducting Magnetic Energy Storage (SMES)",
+        "capacity": "10 GWh",
+        "purpose": "Buffer fusion output for AI compute"
+      },
+      "planetary_interface": {
+        "purpose": "Cross-planetary energy routing",
+        "capabilities": [
+          "Mars ozone stabilization",
+          "Lunar base power",
+          "Asteroid mining energy"
+        ]
+      }
+    },
+    "estimated_cost": "$2.5B",
+    "timeline": "5 years to operation",
+    "qbom_protocol": "Integrated throughout"
+  },
+  "returns": {
+    "energy_sales": {
+      "annual_revenue": "$500M",
+      "source": "Grid power sales"
+    },
+    "ai_compute_leases": {
+      "annual_revenue": "$200M",
+      "source": "DOE/AI company compute time"
+    },
+    "patent_licensing": {
+      "annual_revenue": "$100M",
+      "source": "QBom protocol licensing"
+    },
+    "carbon_credits": {
+      "annual_revenue": "$50M",
+      "source": "Clean energy credits"
+    },
+    "total_annual_revenue": "$850M",
+    "roi_5_year": "68%",
+    "payback_period": "3.5 years"
+  },
+  "sam_registration": {
+    "status": "registration_required",
+    "url": "https://sam.gov",
+    "entity_name": "ManaCiel QBom Protocol LLC",
+    "cage_code": "Pending",
+    "uei": "Pending",
+    "naics_codes": [
+      "541715 - R&D in Physical Sciences",
+      "22111 - Electric Power Generation",
+      "541512 - Computer Systems Design"
+    ],
+    "steps": [
+      "Register at sam.gov",
+      "Obtain UEI number",
+      "Get CAGE code",
+      "Complete representations and certifications",
+      "Register in SBIR.gov for small business programs"
+    ],
+    "timestamp": "2026-08-26T23:14:16.003801"
+  },
+  "genesis_application": {
+    "program": "DOE Genesis Mission",
+    "applicant": "JHAN JHONNIEL FLORES MARTE",
+    "project_title": "QBom Protocol: Fusion-AI Integration for Planetary Energy",
+    "technical_approach": {
+      "fusion_component": "Compact tokamak with AI-driven plasma control",
+      "ai_component": "Exascale computing for real-time optimization",
+      "integration": "QBom protocol for energy quantization",
+      "planetary_application": "Cross-planetary energy routing"
+    },
+    "budget": {
+      "year_1": "$5M (design + simulation)",
+      "year_2": "$15M (component fabrication)",
+      "year_3": "$30M (facility construction)",
+      "total": "$50M"
+    },
+    "status": "application_prepared",
+    "timestamp": "2026-08-26T23:14:16.003842"
+  },
+  "sbir_application": {
+    "program": "SBIR Phase I",
+    "topic": "Fusion Energy Technology",
+    "applicant": "JHAN JHONNIEL FLORES MARTE",
+    "project": "QBom Protocol for Fusion-AI Integration",
+    "amount": "$200K",
+    "duration": "6 months",
+    "status": "application_prepared",
+    "timestamp": "2026-08-26T23:14:16.003845"
+  },
+  "planetary_capabilities": {
+    "earth": {
+      "energy_production": "Fusion-AI facility",
+      "ai_boost": "Exascale computing for climate modeling",
+      "stability": "Grid stabilization via QBom protocol"
+    },
+    "mars": {
+      "ozone_stabilization": "Directed energy to rebuild ozone layer",
+      "base_power": "Compact fusion reactors for colonies",
+      "terraforming": "Long-term atmospheric processing"
+    },
+    "moon": {
+      "base_power": "Helium-3 mining + fusion",
+      "computing": "Lunar data center (cold environment)"
+    },
+    "asteroids": {
+      "mining": "Energy-intensive extraction operations",
+      "processing": "In-situ resource utilization"
+    }
+  },
+  "planetary_roi": {
+    "earth_energy": "$850M/year",
+    "mars_colony_power": "$50M/year (by 2040)",
+    "moon_helium3": "$200M/year (by 2035)",
+    "asteroid_mining": "$500M/year (by 2045)",
+    "total_potential": "$1.6B/year by 2045"
+  }
+}

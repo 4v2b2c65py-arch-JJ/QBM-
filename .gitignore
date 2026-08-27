@@ -31,3 +31,22 @@ yarn-error.log*
 models/
 .turbo/
 qb_protocol_evolution.json
+
+# Gmail OAuth files
+credentials.json
+.gmail_token.pickle
+
+# Credential protection files
+credentials_protected.json
+credentials_manifest.json
+
+# SendGrid env file
+sendgrid.env
+
+# Secure identity files
+.identity_secure
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx

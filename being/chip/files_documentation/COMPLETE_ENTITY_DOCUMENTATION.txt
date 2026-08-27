@@ -1,0 +1,72 @@
+================================================================================
+          SAM.GOV ENTITY REGISTRATION - COMPLETE DOCUMENTATION
+                    JHAN JHONNIEL FLORES MARTE
+                         DBA: ManaCiel
+================================================================================
+
+SECTION 1: LEGAL BUSINESS NAME AND STATE OF INCORPORATION
+--------------------------------------------------------------------------------
+Legal Business Name:        JHAN JHONNIEL FLORES MARTE
+State of Incorporation:     Florida
+
+This certifies that JHAN JHONNIEL FLORES MARTE is a legal business entity
+registered in the State of Florida.
+
+
+================================================================================
+
+SECTION 2: LEGAL BUSINESS NAME AND START YEAR
+--------------------------------------------------------------------------------
+Legal Business Name:        JHAN JHONNIEL FLORES MARTE
+Start Year:                 2026
+Start Date:                 August 27, 2026
+
+This certifies that JHAN JHONNIEL FLORES MARTE commenced business operations
+in the year 2026.
+
+
+================================================================================
+
+SECTION 3: LEGAL BUSINESS NAME AND PHYSICAL ADDRESS
+--------------------------------------------------------------------------------
+Legal Business Name:        JHAN JHONNIEL FLORES MARTE
+Physical Address:           213 Lawrence Dr
+                            Berkeley Heights, NJ 07922
+                            USA
+
+This verifies that JHAN JHONNIEL FLORES MARTE maintains a physical business
+presence at the above address.
+
+
+================================================================================
+
+SECTION 4: LEGAL BUSINESS NAME AND DOING BUSINESS AS NAME
+--------------------------------------------------------------------------------
+Legal Business Name:        JHAN JHONNIEL FLORES MARTE
+Doing Business As:          ManaCiel
+
+This certifies that JHAN JHONNIEL FLORES MARTE is authorized to conduct
+business under the trade name "ManaCiel".
+
+
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Entity Name:            JHAN JHONNIEL FLORES MARTE
+DBA:                    ManaCiel
+State of Incorporation: Florida
+Start Year:             2026
+Physical Address:       213 Lawrence Dr, Berkeley Heights, NJ 07922, USA
+Entity Type:            Sole Proprietorship
+Country:                United States
+
+DOCUMENT INCLUDES:
+[✓] Legal Business Name and State of Incorporation
+[✓] Legal Business Name and Start Year
+[✓] Legal Business Name and Physical Address
+[✓] Legal Business Name and Doing Business As Name
+
+================================================================================
+                         END OF DOCUMENTATION
+================================================================================

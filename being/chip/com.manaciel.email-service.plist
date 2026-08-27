@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.manaciel.email-service</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>/Users/jjmarte/delta-stream/qb_protocol/being/chip/email_service.py</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/jjmarte/delta-stream/qb_protocol/being/chip/logs/email_service.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/jjmarte/delta-stream/qb_protocol/being/chip/logs/email_service.err</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/jjmarte/delta-stream/qb_protocol/being/chip</string>
+</dict>
+</plist>

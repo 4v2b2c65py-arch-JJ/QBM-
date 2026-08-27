@@ -262,6 +262,26 @@ class UnifiedDaemon:
                 status["intelligence_optimizer"] = energy_dominant_optimizer.get_status()
             except Exception:
                 pass
+            try:
+                from qb_protocol.ai.hardware_layer import mac_hardware_layer
+                status["hardware_layer"] = mac_hardware_layer.get_status()
+            except Exception:
+                pass
+            try:
+                from qb_protocol.ai.model_ensemble import model_ensemble
+                status["model_ensemble"] = model_ensemble.get_status()
+            except Exception:
+                pass
+            try:
+                from qb_protocol.ai.celestial_ai_orchestrator import celestial_ai_orchestrator
+                status["celestial_ai_orchestrator"] = celestial_ai_orchestrator.get_status()
+            except Exception:
+                pass
+            try:
+                from qb_protocol.ai.cpu_boost import cpu_boost_controller
+                status["cpu_boost"] = cpu_boost_controller.get_status()
+            except Exception:
+                pass
             return status
 
     async def start(self):

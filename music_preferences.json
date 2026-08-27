@@ -1,0 +1,21 @@
+{
+  "description": "User's Music Preference Reference Board - Model uses this to get a tune on what the user likes",
+  "spotify_profiles": [
+    {
+      "url": "https://open.spotify.com/user/31h2m3qtsl7yt6m2tyakqntv5ne4?si=2742b69efb904831",
+      "note": "Primary Spotify profile"
+    },
+    {
+      "url": "https://open.spotify.com/user/316rzupnmqxd3oa4lqs7cs4yyyny?si=47606b19261a4528",
+      "note": "Secondary Spotify profile"
+    }
+  ],
+  "favorite_artists": [],
+  "favorite_tracks": [],
+  "genre_preferences": {},
+  "mood_preferences": [],
+  "energy_preference": 0.5,
+  "discovery_openness": 0.7,
+  "preferred_era": "any",
+  "last_updated": "2026-08-24T15:57:55-04:00"
+}

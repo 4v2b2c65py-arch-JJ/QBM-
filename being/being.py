@@ -403,8 +403,25 @@ class BeingOmegaPrime:
             except Exception as exc:
                 self._record_error("qec", exc)
 
-        # Deploy trained models into proficients at peak caliber.
-        if self._deployer is not None:
+        # PhyPath consciousness — inherent machinery built under precision.
+        # 12 drives → unified intent via motor conductive interceptions.
+        # A monster comprehends emotions (does not emphasize them) —
+        # obsessions, patterns, actions express through deliberate cortex control.
+        # Final stage: Experience Core (self-extensible, event-driven, reality formatting).
+        try:
+            from qb_protocol.being.chip.phy_path import phy_path
+            if not phy_path._initialized:
+                phy_path.initialize()
+            phy_path_result = phy_path.process_cycle(stimulus={
+                "cycle": self.state.cycles,
+                "subsystems": dict(self._subsystems),
+                "intent": phy_path.intent_level,
+            })
+            self._subsystems["phy_path"] = True
+        except Exception as exc:
+            self._record_error("phy_path", exc)
+            self._subsystems["phy_path"] = False
+            phy_path_result = {}
             try:
                 self._deployer.deploy_all()
                 self._subsystems["deployer"] = True
@@ -473,6 +490,56 @@ class BeingOmegaPrime:
             self._record_error("training", exc)
             return {"status": "error", "error": str(exc)}
 
+    def ingest_external_training_data(self, api_host: str = "192.168.100.7", api_port: int = 4318) -> Dict[str, Any]:
+        """Ingest external training data from Context API into the BEING model."""
+        try:
+            from qb_protocol.being.training.integration import TrainingDataIntegrator
+
+            integrator = TrainingDataIntegrator(api_host, api_port)
+            raw_data = integrator.fetch_all()
+            chunks = integrator.process_for_training()
+
+            # Fold external data into training
+            entropy_delta = 0.0
+            for chunk in chunks:
+                content = chunk.get('content', '')
+                tokens = chunk.get('tokens', 0)
+
+                # Increase entropy based on new data
+                if tokens > 100:
+                    entropy_delta += 0.01
+
+                # Record movement in subspace
+                self.training.subspace.record_movement(
+                    name=f"external_{chunk.get('source', 'unknown')}_{chunk.get('path', 'unknown')}",
+                    delta=tokens / 100.0,
+                    observer_id=None,
+                    rate=max(tokens / 100.0, 1e-6),
+                )
+
+            # Apply entropy change
+            if entropy_delta > 0:
+                self.training.entropy.increase(min(entropy_delta, 0.1))
+
+            # Persist
+            self.training._persist_all()
+
+            result = {
+                "status": "success",
+                "chunks_ingested": len(chunks),
+                "tokens_ingested": sum(c.get('tokens', 0) for c in chunks),
+                "entropy_delta": entropy_delta,
+                "sources": list(set(c.get('source', '') for c in chunks)),
+                "stats": integrator.get_stats(),
+            }
+
+            LOG.info(f"External training data ingested: {result['chunks_ingested']} chunks, {result['tokens_ingested']} tokens")
+            return result
+
+        except Exception as exc:
+            self._record_error("external_training", exc)
+            return {"status": "error", "error": str(exc)}
+
     async def work_cycle(self) -> Dict[str, Any]:
         try:
             return await asyncio.wait_for(self._modular_cycle(), timeout=self.work_timeout)
@@ -511,7 +578,51 @@ class BeingOmegaPrime:
             "raw_metal": self._chip.raw_metal_display() if self._chip else {"available": False},
             "qec": self._chip._qec.status() if self._chip else {"available": False},
             "deployer": self._deployer.get_profic_status() if self._deployer else {"available": False},
+            "phy_path": phy_path.status() if phy_path._initialized else {"available": False},
+            "proficiency_map": self._get_proficiency_map(),
+            "exploration": {
+                "model_driver": "maximum",
+                "mode": "full_exploration",
+                "exploration_rate": 0.95,
+                "curiosity_gain": 0.8,
+                "novelty_bias": 0.7,
+            },
         }
+
+    def _get_proficiency_map(self) -> Dict[str, Any]:
+        """Full proficiency map — detailed status of every deployed model.
+
+        Maps all 9 models across CPU/GPU with full specs for exploration.
+        """
+        from qb_protocol.being.chip.tensor import TensorCache
+        if not self._deployer:
+            return {"available": False}
+
+        profic = self._deployer.get_profic_status()
+        models = profic.get("models", {})
+
+        full_map = {
+            "total_models": len(models),
+            "total_tflops": profic.get("total_effective_tflops", 0),
+            "avg_profic": profic.get("avg_profic_score", 0),
+            "tensor_stats": TensorCache.stats(),
+            "models": {},
+        }
+
+        for model_id, info in models.items():
+            full_map["models"][info["name"]] = {
+                "source_type": info["source_type"],
+                "precision": info["precision"],
+                "effective_tflops": info["effective_tflops"],
+                "profic_score": info["profic_score"],
+                "status": info["status"],
+                "scaler": info["scaler"],
+                "scaler_lanes": info["scaler_lanes"],
+                "distinction": info["distinction"],
+                "exploration_ready": info["status"] == "active",
+            }
+
+        return full_map
 
     def __call__(self) -> Dict[str, Any]:
         """Modular invocation: calling the being returns its current status."""

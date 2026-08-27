@@ -1,0 +1,10 @@
+{
+  "totalEvents": 51,
+  "totalTriggers": 32,
+  "reversiblePoints": 0,
+  "fieldRange": {
+    "min": -10533377.732933233,
+    "max": 0.0007790144529625278
+  },
+  "decisionSpaceEntries": 32
+}

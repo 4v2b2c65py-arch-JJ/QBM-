@@ -1,0 +1,1276 @@
+[
+  {
+    "id": "983411ea36e26493",
+    "triggerTime": "2026-08-22T22:36:39.032598Z",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 0,
+      "kind": "model_store",
+      "subject": "C:\\Users\\JJ\\AppData\\Roaming\\LM Studio",
+      "at": "2026-08-22T22:36:39.032598Z",
+      "fieldValue": -6,
+      "pace": 0.0002841044686223661,
+      "priorPace": 0.0002841044686223661,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": false,
+        "is_model_store": true,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": false,
+        "has_bytes": true,
+        "has_pid": false,
+        "has_working_set": false
+      }
+    },
+    "predecessor": null,
+    "successor": {
+      "idx": 1,
+      "fieldValue": 0.0007790144529625278
+    }
+  },
+  {
+    "id": "159c3fc805e6815a",
+    "triggerTime": "2026-08-22T19:35:18.8648879-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 1,
+      "kind": "process",
+      "subject": "pwsh",
+      "at": "2026-08-22T19:35:18.8648879-04:00",
+      "fieldValue": 0.0007790144529625278,
+      "pace": 0,
+      "priorPace": 0.0001988731280356563,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 0,
+      "fieldValue": -6
+    },
+    "successor": {
+      "idx": 2,
+      "fieldValue": -34.77972283005106
+    }
+  },
+  {
+    "id": "e3b5320bd8358661",
+    "triggerTime": "2026-08-22T19:35:16.1222313-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 2,
+      "kind": "process",
+      "subject": "python",
+      "at": "2026-08-22T19:35:16.1222313-04:00",
+      "fieldValue": -34.77972283005106,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 1,
+      "fieldValue": 0.0007790144529625278
+    },
+    "successor": {
+      "idx": 3,
+      "fieldValue": -8.860815163528246
+    }
+  },
+  {
+    "id": "634d7ba5523e7a72",
+    "triggerTime": "2026-08-22T19:32:45.0011602-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 4,
+      "kind": "process",
+      "subject": "node_repl",
+      "at": "2026-08-22T19:32:45.0011602-04:00",
+      "fieldValue": -8.386493506493506,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 3,
+      "fieldValue": -8.860815163528246
+    },
+    "successor": {
+      "idx": 5,
+      "fieldValue": -297.1004329004329
+    }
+  },
+  {
+    "id": "52750d07129b9d76",
+    "triggerTime": "2026-08-22T19:32:44.6162213-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 5,
+      "kind": "process",
+      "subject": "node_repl",
+      "at": "2026-08-22T19:32:44.6162213-04:00",
+      "fieldValue": -297.1004329004329,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 4,
+      "fieldValue": -8.386493506493506
+    },
+    "successor": {
+      "idx": 6,
+      "fieldValue": -1.1171989204077446
+    }
+  },
+  {
+    "id": "d9bb803a028ba899",
+    "triggerTime": "2026-08-22T19:27:01.4653216-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 6,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:27:01.4653216-04:00",
+      "fieldValue": -1.1171989204077446,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 5,
+      "fieldValue": -297.1004329004329
+    },
+    "successor": {
+      "idx": 7,
+      "fieldValue": -1.6970529084158417
+    }
+  },
+  {
+    "id": "4f4d0eeae4ab7163",
+    "triggerTime": "2026-08-22T19:25:33.7075285-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 7,
+      "kind": "process",
+      "subject": "cmd",
+      "at": "2026-08-22T19:25:33.7075285-04:00",
+      "fieldValue": -1.6970529084158417,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 6,
+      "fieldValue": -1.1171989204077446
+    },
+    "successor": {
+      "idx": 8,
+      "fieldValue": -1.093904702970297
+    }
+  },
+  {
+    "id": "7316758307cdeab5",
+    "triggerTime": "2026-08-22T19:25:20.7796272-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 8,
+      "kind": "process",
+      "subject": "cmd",
+      "at": "2026-08-22T19:25:20.7796272-04:00",
+      "fieldValue": -1.093904702970297,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 7,
+      "fieldValue": -1.6970529084158417
+    },
+    "successor": {
+      "idx": 9,
+      "fieldValue": -25.25357142857143
+    }
+  },
+  {
+    "id": "5c7d6ae48c57101c",
+    "triggerTime": "2026-08-22T19:24:17.1405732-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 9,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:17.1405732-04:00",
+      "fieldValue": -25.25357142857143,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 8,
+      "fieldValue": -1.093904702970297
+    },
+    "successor": {
+      "idx": 10,
+      "fieldValue": -2.4404761904761907
+    }
+  },
+  {
+    "id": "345e875b116b503c",
+    "triggerTime": "2026-08-22T19:24:09.8715022-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 11,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:09.8715022-04:00",
+      "fieldValue": -0.19290465631929046,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 10,
+      "fieldValue": -2.4404761904761907
+    },
+    "successor": {
+      "idx": 12,
+      "fieldValue": -2.027972027972028
+    }
+  },
+  {
+    "id": "5d0de50d20ce9a71",
+    "triggerTime": "2026-08-22T19:24:02.041725-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 12,
+      "kind": "process",
+      "subject": "codex",
+      "at": "2026-08-22T19:24:02.041725-04:00",
+      "fieldValue": -2.027972027972028,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 11,
+      "fieldValue": -0.19290465631929046
+    },
+    "successor": {
+      "idx": 13,
+      "fieldValue": -1.2857142857142858
+    }
+  },
+  {
+    "id": "4d5cc8113d0138c0",
+    "triggerTime": "2026-08-22T19:24:01.3818655-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 14,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:01.3818655-04:00",
+      "fieldValue": -0.7333333333333333,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 13,
+      "fieldValue": -1.2857142857142858
+    },
+    "successor": {
+      "idx": 15,
+      "fieldValue": -7.270833333333333
+    }
+  },
+  {
+    "id": "0d895ca84e1ea457",
+    "triggerTime": "2026-08-22T19:24:01.3697413-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 15,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:01.3697413-04:00",
+      "fieldValue": -7.270833333333333,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 14,
+      "fieldValue": -0.7333333333333333
+    },
+    "successor": {
+      "idx": 16,
+      "fieldValue": -2.648956356736243
+    }
+  },
+  {
+    "id": "b63e29944769c671",
+    "triggerTime": "2026-08-22T19:24:00.6402996-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 17,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:00.6402996-04:00",
+      "fieldValue": -0.4982078853046595,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 16,
+      "fieldValue": -2.648956356736243
+    },
+    "successor": {
+      "idx": 18,
+      "fieldValue": -209.75615297235896
+    }
+  },
+  {
+    "id": "230c0550b8811335",
+    "triggerTime": "2026-08-22T19:24:00.5010027-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 18,
+      "kind": "process",
+      "subject": "ChatGPT",
+      "at": "2026-08-22T19:24:00.5010027-04:00",
+      "fieldValue": -209.75615297235896,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 17,
+      "fieldValue": -0.4982078853046595
+    },
+    "successor": {
+      "idx": 19,
+      "fieldValue": -0.18503843196152833
+    }
+  },
+  {
+    "id": "97dee226ac21b88f",
+    "triggerTime": "2026-08-22T19:19:23.5183955-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 19,
+      "kind": "process",
+      "subject": "mscopilot_proxy",
+      "at": "2026-08-22T19:19:23.5183955-04:00",
+      "fieldValue": -0.18503843196152833,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 18,
+      "fieldValue": -209.75615297235896
+    },
+    "successor": {
+      "idx": 20,
+      "fieldValue": -0.3356132685745875
+    }
+  },
+  {
+    "id": "290ea78108740c84",
+    "triggerTime": "2026-08-22T18:40:44.8865581-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 21,
+      "kind": "process",
+      "subject": "pythonw",
+      "at": "2026-08-22T18:40:44.8865581-04:00",
+      "fieldValue": -4.1476127378822705,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 20,
+      "fieldValue": -0.3356132685745875
+    },
+    "successor": {
+      "idx": 22,
+      "fieldValue": -0.19514311351662436
+    }
+  },
+  {
+    "id": "38c3dcb33c214e28",
+    "triggerTime": "2026-08-22T18:40:05.2996595-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 22,
+      "kind": "process",
+      "subject": "pythonw",
+      "at": "2026-08-22T18:40:05.2996595-04:00",
+      "fieldValue": -0.19514311351662436,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 21,
+      "fieldValue": -4.1476127378822705
+    },
+    "successor": {
+      "idx": 23,
+      "fieldValue": -246.775
+    }
+  },
+  {
+    "id": "ed3d0298aa595684",
+    "triggerTime": "2026-08-22T18:38:36.4600128-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 23,
+      "kind": "process",
+      "subject": "python",
+      "at": "2026-08-22T18:38:36.4600128-04:00",
+      "fieldValue": -246.775,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 22,
+      "fieldValue": -0.19514311351662436
+    },
+    "successor": {
+      "idx": 24,
+      "fieldValue": -100.688
+    }
+  },
+  {
+    "id": "5894ae2dc3b34416",
+    "triggerTime": "2026-08-22T18:37:58.6721565-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 25,
+      "kind": "process",
+      "subject": "m365copilot_autostarter",
+      "at": "2026-08-22T18:37:58.6721565-04:00",
+      "fieldValue": -0.13103896474308044,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 24,
+      "fieldValue": -100.688
+    },
+    "successor": {
+      "idx": 26,
+      "fieldValue": -158.81728395061728
+    }
+  },
+  {
+    "id": "c3c8b8e41a3f820d",
+    "triggerTime": "2026-08-22T18:36:54.3516082-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 26,
+      "kind": "process",
+      "subject": "OpenConsole",
+      "at": "2026-08-22T18:36:54.3516082-04:00",
+      "fieldValue": -158.81728395061728,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 25,
+      "fieldValue": -0.13103896474308044
+    },
+    "successor": {
+      "idx": 27,
+      "fieldValue": -2.9238095238095236
+    }
+  },
+  {
+    "id": "7e94d15be5f5e4d1",
+    "triggerTime": "2026-08-22T18:36:53.0931998-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 28,
+      "kind": "process",
+      "subject": "OpenConsole",
+      "at": "2026-08-22T18:36:53.0931998-04:00",
+      "fieldValue": -2.3524904214559386,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 27,
+      "fieldValue": -2.9238095238095236
+    },
+    "successor": {
+      "idx": 29,
+      "fieldValue": -36.95
+    }
+  },
+  {
+    "id": "4b1a43f6c7fe7981",
+    "triggerTime": "2026-08-22T18:36:53.0579044-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 29,
+      "kind": "process",
+      "subject": "cmd",
+      "at": "2026-08-22T18:36:53.0579044-04:00",
+      "fieldValue": -36.95,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 28,
+      "fieldValue": -2.3524904214559386
+    },
+    "successor": {
+      "idx": 30,
+      "fieldValue": -29.25659824046921
+    }
+  },
+  {
+    "id": "91c185e2f037b4f2",
+    "triggerTime": "2026-08-22T18:36:29.5277099-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 32,
+      "kind": "process",
+      "subject": "figma_agent",
+      "at": "2026-08-22T18:36:29.5277099-04:00",
+      "fieldValue": -0.18917736664693924,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 31,
+      "fieldValue": -5.018465909090909
+    },
+    "successor": {
+      "idx": 33,
+      "fieldValue": -18.534453781512607
+    }
+  },
+  {
+    "id": "1e5ec010aeb055dd",
+    "triggerTime": "2026-08-22T18:36:18.4642979-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 34,
+      "kind": "process",
+      "subject": "powershell",
+      "at": "2026-08-22T18:36:18.4642979-04:00",
+      "fieldValue": -42.39836734693878,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 33,
+      "fieldValue": -18.534453781512607
+    },
+    "successor": {
+      "idx": 35,
+      "fieldValue": -32.06049382716049
+    }
+  },
+  {
+    "id": "06c9db02353fb1e6",
+    "triggerTime": "2026-08-22T18:35:48.8690445-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 37,
+      "kind": "process",
+      "subject": "ArmourySwAgent",
+      "at": "2026-08-22T18:35:48.8690445-04:00",
+      "fieldValue": -0.06931318802451535,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 36,
+      "fieldValue": -4.301501501501502
+    },
+    "successor": {
+      "idx": 38,
+      "fieldValue": -0.1425371349035471
+    }
+  },
+  {
+    "id": "3a66f1c61e1fa20c",
+    "triggerTime": "2026-08-22T18:35:31.045366-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 39,
+      "kind": "process",
+      "subject": "NVIDIA Web Helper",
+      "at": "2026-08-22T18:35:31.045366-04:00",
+      "fieldValue": -2.46390977443609,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 38,
+      "fieldValue": -0.1425371349035471
+    },
+    "successor": {
+      "idx": 40,
+      "fieldValue": -0.169998166147075
+    }
+  },
+  {
+    "id": "34808ddd68ccd042",
+    "triggerTime": "2026-08-22T18:35:30.7797313-04:00",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 40,
+      "kind": "process",
+      "subject": "WindowsTerminal",
+      "at": "2026-08-22T18:35:30.7797313-04:00",
+      "fieldValue": -0.169998166147075,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 39,
+      "fieldValue": -2.46390977443609
+    },
+    "successor": {
+      "idx": 41,
+      "fieldValue": -1.423963133640553
+    }
+  },
+  {
+    "id": "5708e65d420044a8",
+    "triggerTime": "2026-08-22T18:35:29.8215244-04:00",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 42,
+      "kind": "process",
+      "subject": "cmd",
+      "at": "2026-08-22T18:35:29.8215244-04:00",
+      "fieldValue": -10533377.732933233,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": true,
+        "is_model_store": false,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": true,
+        "has_bytes": false,
+        "has_pid": true,
+        "has_working_set": true
+      }
+    },
+    "predecessor": {
+      "idx": 41,
+      "fieldValue": -1.423963133640553
+    },
+    "successor": {
+      "idx": 43,
+      "fieldValue": -0.2714791166730825
+    }
+  },
+  {
+    "id": "df75af823e40d1ec",
+    "triggerTime": "2026-06-02T16:27:13.5621295Z",
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 43,
+      "kind": "model_store",
+      "subject": "C:\\Users\\JJ\\AppData\\Local\\Ollama",
+      "at": "2026-06-02T16:27:13.5621295Z",
+      "fieldValue": -0.2714791166730825,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": false,
+        "is_model_store": true,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": false,
+        "has_bytes": true,
+        "has_pid": false,
+        "has_working_set": false
+      }
+    },
+    "predecessor": {
+      "idx": 42,
+      "fieldValue": -10533377.732933233
+    },
+    "successor": {
+      "idx": 44,
+      "fieldValue": -0.2835427573257382
+    }
+  },
+  {
+    "id": "adce8753cd30be7e",
+    "triggerTime": "2025-12-22T22:01:40.6603323Z",
+    "triggerType": "valley",
+    "originatingEvent": {
+      "idx": 44,
+      "kind": "model_store",
+      "subject": "C:\\Users\\JJ\\.ollama",
+      "at": "2025-12-22T22:01:40.6603323Z",
+      "fieldValue": -0.2835427573257382,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": true,
+        "has_metrics": true,
+        "is_process": false,
+        "is_model_store": true,
+        "is_quantum_claimed": false,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": false,
+        "has_status": false,
+        "is_running": false,
+        "is_stopped": false,
+        "has_threads": false,
+        "has_bytes": true,
+        "has_pid": false,
+        "has_working_set": false
+      }
+    },
+    "predecessor": {
+      "idx": 43,
+      "fieldValue": -0.2714791166730825
+    },
+    "successor": {
+      "idx": 45,
+      "fieldValue": -0.13043478260869565
+    }
+  },
+  {
+    "id": "3a14cb5c5eacdacd",
+    "triggerTime": null,
+    "triggerType": "peak",
+    "originatingEvent": {
+      "idx": 50,
+      "kind": "quantum_claimed_service",
+      "subject": "QuantumStorageService",
+      "at": null,
+      "fieldValue": -0.0784313725490196,
+      "pace": 0,
+      "priorPace": 0,
+      "flags": {
+        "has_time": false,
+        "has_metrics": true,
+        "is_process": false,
+        "is_model_store": false,
+        "is_quantum_claimed": true,
+        "is_service": false,
+        "is_finding": false,
+        "has_evidence": true,
+        "has_finding": true,
+        "has_status": true,
+        "is_running": false,
+        "is_stopped": true,
+        "has_threads": false,
+        "has_bytes": false,
+        "has_pid": false,
+        "has_working_set": false
+      }
+    },
+    "predecessor": {
+      "idx": 49,
+      "fieldValue": -0.08
+    },
+    "successor": null
+  }
+]
