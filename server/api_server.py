@@ -3500,3 +3500,23 @@ def argon_provision_records():
 @app.get("/argon/subsets")
 def argon_subsets():
     return {"subsets": _ARGON_SUBSETS, "note":"Argon API auto-provisioned under all model subsets; connect via node directive."}
+
+# ============ X-Velocity Benchmark (1000x -> limit) ============
+try:
+    from qb_protocol.ai.velocity_benchmark import velocity_benchmark as _velocity_benchmark
+    HAS_VELOCITY_BENCH = True
+except Exception:
+    _velocity_benchmark = None; HAS_VELOCITY_BENCH = False
+
+@app.get("/benchmark/velocity")
+def benchmark_velocity_last():
+    if not HAS_VELOCITY_BENCH: return {"error":"velocity_benchmark_unavailable"}
+    return _velocity_benchmark.last() or {"status":"not_run","hint":"POST /benchmark/velocity to run"}
+
+@app.post("/benchmark/velocity")
+def benchmark_velocity_run(body: Dict[str, Any] = Body(default={})):
+    if not HAS_VELOCITY_BENCH: return {"error":"velocity_benchmark_unavailable"}
+    b = body or {}
+    return _velocity_benchmark.run(
+        start_x=int(b.get("start_x",1000)), multiplier=int(b.get("multiplier",2)),
+        max_x=int(b.get("max_x",1_000_000)), max_seconds_per_scale=float(b.get("max_seconds_per_scale",1.5)))
