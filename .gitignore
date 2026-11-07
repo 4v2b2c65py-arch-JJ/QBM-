@@ -50,3 +50,17 @@ sendgrid.env
 *.pem
 *.p12
 *.pfx
+
+# Local secrets (never commit)
+.env
+
+# QB runtime/sensitive state (never commit)
+.qb_protocol_*.json
+*._state.json
+*.sam_automation*
+*.legal_investment_state.json
+*.email_service_state.json
+*.processed_emails.json
+*.orchestrator_full.json
+orchestrator.err
+orchestrator.out

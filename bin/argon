@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+"""Argon CLI - local bridge to QB Protocol unified model registry & AI."""
+import os, sys, json, argparse, urllib.request, urllib.error
+
+BACKEND = os.environ.get("ARGON_BACKEND_URL", "http://127.0.0.1:17760").rstrip("/")
+PROTO = os.environ.get("ARGON_PROTOCOL_VERSION", "2")
+
+def req(method, path, body=None):
+    url = BACKEND + path
+    data = json.dumps(body).encode() if body is not None else None
+    headers = {"Content-Type": "application/json", "X-Protocol-Version": PROTO}
+    token = os.environ.get("ARGON_API_TOKEN")
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    r = urllib.request.Request(url, data=data, headers=headers, method=method)
+    try:
+        with urllib.request.urlopen(r, timeout=30) as resp:
+            return json.loads(resp.read().decode() or "{}")
+    except urllib.error.HTTPError as e:
+        try:
+            return json.loads(e.read().decode())
+        except Exception:
+            return {"error": f"http_{e.code}", "detail": str(e)}
+    except Exception as e:
+        return {"error": "connection_failed", "detail": str(e), "backend": BACKEND}
+
+def out(obj):
+    print(json.dumps(obj, indent=2, default=str))
+
+def main():
+    p = argparse.ArgumentParser(prog="argon", description="Argon Model CLI (QB Protocol bridge)")
+    sub = p.add_subparsers(dest="cmd")
+    s = sub.add_parser("model"); ss = s.add_subparsers(dest="sub"); ss.add_parser("status")
+    s = sub.add_parser("rate"); ss = s.add_subparsers(dest="sub")
+    c = ss.add_parser("check"); c.add_argument("--tier", default="balanced")
+    ss.add_parser("status")
+    s = sub.add_parser("mcp"); ss = s.add_subparsers(dest="sub")
+    c = ss.add_parser("route"); c.add_argument("method"); c.add_argument("--params", default="{}")
+    ss.add_parser("status")
+    s = sub.add_parser("usage"); ss = s.add_subparsers(dest="sub"); ss.add_parser("summary")
+    s = sub.add_parser("billing"); ss = s.add_subparsers(dest="sub"); ss.add_parser("plans")
+    s = sub.add_parser("api"); ss = s.add_subparsers(dest="sub"); ss.add_parser("specs")
+    s = sub.add_parser("registry"); ss = s.add_subparsers(dest="sub")
+    c = ss.add_parser("list"); c.add_argument("--category")
+    ss.add_parser("status"); ss.add_parser("rescan"); ss.add_parser("models")
+    sub.add_parser("health")
+    s = sub.add_parser("auth"); ss = s.add_subparsers(dest="sub"); ss.add_parser("login"); ss.add_parser("logout")
+    args = p.parse_args()
+    if not args.cmd: p.print_help(); return
+    if args.cmd == "model": out(req("GET", "/model/status"))
+    elif args.cmd == "rate" and args.sub == "check": out(req("POST", "/rate/check", {"tier": getattr(args,"tier","balanced")}))
+    elif args.cmd == "rate": out(req("GET", "/rate/status"))
+    elif args.cmd == "mcp" and args.sub == "route": out(req("POST", "/mcp/route", {"method": args.method, "params": json.loads(args.params)}))
+    elif args.cmd == "mcp": out(req("GET", "/mcp/status"))
+    elif args.cmd == "usage": out(req("GET", "/usage/summary"))
+    elif args.cmd == "billing": out(req("GET", "/billing/plans"))
+    elif args.cmd == "api": out(req("GET", "/api/openapi/argon"))
+    elif args.cmd == "registry" and args.sub == "list": out(req("GET", f"/models/registry{('?category='+args.category) if args.category else ''}"))
+    elif args.cmd == "registry" and args.sub == "status": out(req("GET", "/models/registry/status"))
+    elif args.cmd == "registry" and args.sub == "rescan": out(req("POST", "/models/registry/rescan", {}))
+    elif args.cmd == "registry" and args.sub == "models": out(req("GET", "/models/all"))
+    elif args.cmd == "health": out(req("GET", "/health"))
+    elif args.cmd == "auth": out({"info": "Local bridge active. Set ARGON_API_TOKEN for portal auth.", "backend": BACKEND})
+    else: p.print_help()
+
+if __name__ == "__main__":
+    main()

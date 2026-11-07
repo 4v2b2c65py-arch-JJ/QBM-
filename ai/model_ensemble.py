@@ -86,10 +86,16 @@ class ModelEnsemble:
     def _discover_models(self):
         search_paths = [
             Path("/Users/jjmarte/delta-stream/qb_protocol/models"),
+            Path("/Users/jjmarte/speed/Gnu-3.4-console-edition/alien ware/gnu 3.4"),
             Path("/Users/jjmarte/Downloads"),
             Path.home() / "Models",
             Path.home() / ".models",
         ]
+        extra = os.environ.get("QB_MODEL_SEARCH_PATHS", "")
+        for p in extra.split(os.pathsep):
+            p = p.strip()
+            if p:
+                search_paths.append(Path(p))
         discovered = []
         for base in search_paths:
             if not base.exists():

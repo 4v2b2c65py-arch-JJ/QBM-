@@ -39,7 +39,7 @@ from prometheus_client import Counter, Gauge, Histogram
 from sentry_sdk import capture_exception, capture_message
 
 try:
-    from qb_protocol.core.daemon import daemon, UnifiedDaemon, InstanceStatus, CoreType
+    from qb_protocol.core.daemon import daemon, InstanceStatus, CoreType
     from qb_protocol.stabilizers.reality_stabilizer import reality_stabilizer
     from qb_protocol.dream.dream_engine import dream_engine
     from qb_protocol.package.node_service_package import node_package, rate_limiter
@@ -49,7 +49,7 @@ try:
     HAS_EVOLUTION = True
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from core.daemon import daemon, UnifiedDaemon, InstanceStatus, CoreType
+    from core.daemon import daemon, InstanceStatus, CoreType
     from stabilizers.reality_stabilizer import reality_stabilizer
     from dream.dream_engine import dream_engine
     from package.node_service_package import node_package, rate_limiter
@@ -3198,3 +3198,209 @@ def check_model_activation(device_id: str):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=17760)
+
+
+# ============ Argon-VC Bridge + Unified Model Registry ============
+# Exposes Argon-compatible endpoints for the Vercel portal (arvc-indol.vercel.app)
+# and local CLI. Credentials are NEVER returned — only env var names and configured status.
+
+try:
+    from qb_protocol.ai.model_registry import model_registry as _model_registry
+    HAS_MODEL_REGISTRY = True
+except Exception:
+    _model_registry = None
+    HAS_MODEL_REGISTRY = False
+
+
+@app.get("/models/registry")
+def models_registry(category: Optional[str] = None):
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    return {"providers": _model_registry.list_providers(category=category), "status": _model_registry.get_status()}
+
+
+@app.get("/models/registry/status")
+def models_registry_status():
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    return _model_registry.get_status()
+
+
+@app.post("/models/registry/rescan")
+def models_registry_rescan():
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    return _model_registry.rescan()
+
+
+@app.get("/models/registry/providers/{provider_id}")
+def models_registry_provider(provider_id: str):
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    p = _model_registry.get_provider(provider_id)
+    if not p:
+        raise HTTPException(status_code=404, detail="provider_not_found")
+    return p
+
+
+@app.post("/models/registry/register")
+def models_registry_register(body: Dict[str, Any] = Body(...)):
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    p = _model_registry.register_provider(body)
+    return p.to_safe_dict()
+
+
+@app.get("/models/all")
+def models_all():
+    if not HAS_MODEL_REGISTRY:
+        return {"error": "model_registry_unavailable"}
+    return {"models": _model_registry.get_all_models(), "status": _model_registry.get_status()}
+
+
+# --- Argon-VC compatible routes (for CLI + Vercel portal backend) ---
+
+@app.get("/model/status")
+def argon_model_status():
+    """Argon CLI compatible: model/backend status."""
+    ai = {}
+    try:
+        if HAS_AI:
+            ai = gpt_layer.get_status()
+    except Exception as e:
+        ai = {"error": str(e)}
+    reg = _model_registry.get_status() if HAS_MODEL_REGISTRY else {}
+    return {
+        "status": "ok",
+        "backend": "qb_protocol",
+        "version": PROTOCOL_VERSION,
+        "ai": ai,
+        "model_registry": reg,
+        "endpoints": {
+            "local": "http://127.0.0.1:17760",
+            "vercel_portal": os.environ.get("ARGON_VERCEL_URL", "https://arvc-indol.vercel.app"),
+        },
+    }
+
+
+@app.post("/rate/check")
+def argon_rate_check(body: Dict[str, Any] = Body(default={})):
+    """Argon CLI compatible: rate limit check."""
+    tier = body.get("tier", "balanced") if isinstance(body, dict) else "balanced"
+    return {"allowed": True, "tier": tier, "remaining": 9999, "reset_seconds": 60, "source": "qb_protocol"}
+
+
+@app.get("/rate/status")
+def argon_rate_status():
+    return {"status": "ok", "tier": "balanced", "limits": {"requests_per_min": 9999}, "source": "qb_protocol"}
+
+
+@app.post("/mcp/route")
+def argon_mcp_route(body: Dict[str, Any] = Body(default={})):
+    """Argon CLI compatible: route MCP calls to local providers/models."""
+    method = (body or {}).get("method", "")
+    params = (body or {}).get("params", {}) or {}
+    if method == "mcp.pool.query" or method.startswith("model."):
+        prompt = params.get("prompt") or params.get("query") or json.dumps(params)
+        try:
+            if HAS_AI:
+                result = gpt_layer.query(prompt, max_tokens=int(params.get("max_tokens", 256)), temperature=float(params.get("temperature", 0.7)))
+                return {"ok": True, "routed_by": "qb_protocol.gpt_layer", "method": method, "result": result}
+        except Exception as e:
+            return {"ok": False, "error": str(e), "method": method}
+    if method == "mcp.registry.list":
+        models = _model_registry.get_all_models() if HAS_MODEL_REGISTRY else []
+        return {"ok": True, "routed_by": "qb_protocol.model_registry", "method": method, "result": {"models": models}}
+    return {"ok": True, "routed_by": "qb_protocol", "method": method, "result": {"echo": params, "note": "no handler; extend /mcp/route for this method"}}
+
+
+@app.get("/mcp/status")
+def argon_mcp_status():
+    reg = _model_registry.get_status() if HAS_MODEL_REGISTRY else {}
+    return {"status": "ok", "router": "qb_protocol", "model_registry": reg, "vercel_portal": os.environ.get("ARGON_VERCEL_URL", "https://arvc-indol.vercel.app")}
+
+
+@app.get("/usage/summary")
+def argon_usage_summary():
+    return {"status": "ok", "source": "qb_protocol", "models": _model_registry.get_status() if HAS_MODEL_REGISTRY else {}}
+
+
+@app.get("/billing/plans")
+def argon_billing_plans():
+    return {"plans": [{"id": "local", "name": "Local Device", "price": 0, "features": ["local models", "ensemble", "celestial routing"]}]}
+
+
+@app.get("/api/openapi/argon")
+def argon_openapi():
+    return {"spec": "argon-bridge", "version": PROTOCOL_VERSION, "endpoints": ["/model/status","/rate/check","/rate/status","/mcp/route","/mcp/status","/models/registry","/models/all","/usage/summary","/billing/plans"]}
+
+# ============ Usage Pricing, Wallet, and Node Directive ============
+
+try:
+    from qb_protocol.ai.usage_wallet import usage_wallet as _usage_wallet
+    HAS_USAGE_WALLET = True
+except Exception:
+    _usage_wallet = None; HAS_USAGE_WALLET = False
+
+try:
+    from qb_protocol.ai.node_directive import node_directive as _node_directive
+    HAS_NODE_DIRECTIVE = True
+except Exception:
+    _node_directive = None; HAS_NODE_DIRECTIVE = False
+
+@app.get("/usage/pricing")
+def usage_pricing():
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.pricing()
+
+@app.post("/usage/pricing")
+def usage_pricing_set(body: Dict[str, Any] = Body(...)):
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.set_pricing(body)
+
+@app.get("/wallet/status")
+def wallet_status():
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.status()
+
+@app.get("/wallet/balance/{node_id}")
+def wallet_balance(node_id: str):
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.get_balance(node_id)
+
+@app.post("/wallet/credit")
+def wallet_credit(body: Dict[str, Any] = Body(...)):
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.credit(str(body.get("node_id","local")), float(body.get("amount",0)), body.get("currency","USD"), body.get("reason","credit"), body.get("metadata") or {})
+
+@app.post("/wallet/usage")
+def wallet_usage(body: Dict[str, Any] = Body(...)):
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return _usage_wallet.record_usage(str(body.get("node_id","local")), int(body.get("tokens",0)), int(body.get("requests",1)), str(body.get("tier","local_free")), body.get("metadata") or {})
+
+@app.get("/wallet/transactions")
+def wallet_transactions(node_id: Optional[str] = None, limit: int = 100):
+    if not HAS_USAGE_WALLET: return {"error": "usage_wallet_unavailable"}
+    return {"transactions": _usage_wallet.transactions(node_id, limit)}
+
+@app.get("/node/directive")
+def node_directive_get():
+    if not HAS_NODE_DIRECTIVE: return {"error": "node_directive_unavailable"}
+    d = _node_directive.directive()
+    if HAS_USAGE_WALLET: d["pricing_detail"] = _usage_wallet.pricing()
+    return d
+
+@app.post("/node/register")
+def node_register(body: Dict[str, Any] = Body(...)):
+    if not HAS_NODE_DIRECTIVE: return {"error": "node_directive_unavailable"}
+    return _node_directive.register(body)
+
+@app.post("/node/{node_id}/heartbeat")
+def node_heartbeat(node_id: str):
+    if not HAS_NODE_DIRECTIVE: return {"error": "node_directive_unavailable"}
+    return _node_directive.heartbeat(node_id)
+
+@app.get("/node/list")
+def node_list():
+    if not HAS_NODE_DIRECTIVE: return {"error": "node_directive_unavailable"}
+    return {"nodes": _node_directive.list_nodes()}
