@@ -3472,3 +3472,31 @@ def pool_data_list(scope: Optional[str] = None, limit: int = 100):
 def pool_mesh_link(body: Dict[str, Any] = Body(...)):
     if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
     return _mesh_pool.link_nodes(str(body.get("a","")), str(body.get("b","")), body.get("meta") or {})
+
+# ============ Argon Auto-Provisioning across broad-spectrum model subsets ============
+try:
+    from qb_protocol.ai.argon_provisioner import argon_provisioner as _argon_provisioner, SUBSET_DEFS as _ARGON_SUBSETS
+    # wire to registry
+    if HAS_MODEL_REGISTRY and _argon_provisioner._registry is None: _argon_provisioner._registry = _model_registry
+    HAS_ARGON_PROVISIONER = True
+except Exception:
+    _argon_provisioner = None; _ARGON_SUBSETS = {}; HAS_ARGON_PROVISIONER = False
+
+@app.get("/argon/provision/status")
+def argon_provision_status():
+    if not HAS_ARGON_PROVISIONER: return {"error":"argon_provisioner_unavailable"}
+    return _argon_provisioner.status()
+
+@app.post("/argon/provision/auto")
+def argon_provision_auto():
+    if not HAS_ARGON_PROVISIONER: return {"error":"argon_provisioner_unavailable"}
+    return _argon_provisioner.auto_provision()
+
+@app.get("/argon/provision/records")
+def argon_provision_records():
+    if not HAS_ARGON_PROVISIONER: return {"error":"argon_provisioner_unavailable"}
+    return {"records": _argon_provisioner.records(), "subsets": _ARGON_SUBSETS}
+
+@app.get("/argon/subsets")
+def argon_subsets():
+    return {"subsets": _ARGON_SUBSETS, "note":"Argon API auto-provisioned under all model subsets; connect via node directive."}
