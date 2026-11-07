@@ -3404,3 +3404,71 @@ def node_heartbeat(node_id: str):
 def node_list():
     if not HAS_NODE_DIRECTIVE: return {"error": "node_directive_unavailable"}
     return {"nodes": _node_directive.list_nodes()}
+
+# ============ Mesh Pool: users, tasks, shared data, inter-node meshing ============
+
+try:
+    from qb_protocol.ai.mesh_pool import mesh_pool as _mesh_pool
+    HAS_MESH_POOL = True
+except Exception:
+    _mesh_pool = None; HAS_MESH_POOL = False
+
+@app.get("/pool/status")
+def pool_status():
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    nodes = _node_directive.list_nodes() if HAS_NODE_DIRECTIVE else []
+    return _mesh_pool.status(nodes)
+
+@app.post("/pool/users/upsert")
+def pool_user_upsert(body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.upsert_user(body)
+
+@app.get("/pool/users")
+def pool_users():
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return {"users": list(_mesh_pool._data.get("users", {}).values())}
+
+@app.post("/pool/tasks/append")
+def pool_task_append(body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.append_task(body)
+
+@app.post("/pool/tasks/claim")
+def pool_task_claim(body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.claim_task(str(body.get("node_id","")), body.get("task_id"), body.get("type"))
+
+@app.post("/pool/tasks/{task_id}/complete")
+def pool_task_complete(task_id: str, body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.complete_task(task_id, body.get("result") or {}, body.get("status","done"))
+
+@app.get("/pool/tasks")
+def pool_tasks(status: Optional[str] = None, limit: int = 100):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    vals = list(_mesh_pool._data.get("tasks", {}).values())
+    if status: vals = [v for v in vals if v.get("status")==status]
+    return {"tasks": vals[-max(1,min(limit,500)):]}
+
+@app.post("/pool/data")
+def pool_data_put(body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.put_data(body)
+
+@app.get("/pool/data/{key}")
+def pool_data_get(key: str):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    v = _mesh_pool.get_data(key)
+    if not v: raise HTTPException(status_code=404, detail="data_not_found")
+    return v
+
+@app.get("/pool/data")
+def pool_data_list(scope: Optional[str] = None, limit: int = 100):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return {"data": _mesh_pool.list_data(scope, limit)}
+
+@app.post("/pool/mesh/link")
+def pool_mesh_link(body: Dict[str, Any] = Body(...)):
+    if not HAS_MESH_POOL: return {"error": "mesh_pool_unavailable"}
+    return _mesh_pool.link_nodes(str(body.get("a","")), str(body.get("b","")), body.get("meta") or {})
