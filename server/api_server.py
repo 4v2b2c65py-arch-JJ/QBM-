@@ -3577,3 +3577,37 @@ def codepath_recall_get(key: str):
 def codepath_recall_list(limit: int = 100):
     if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
     return {"refs": _codepath_recall.list_recall(limit)}
+
+# ============ Codepath Ingest Daemon (keep-alive, regular basis, state-of-thought) ============
+try:
+    from qb_protocol.ai.codepath_ingest_daemon import codepath_ingest_daemon as _codepath_ingest
+    HAS_CODEPATH_INGEST = True
+except Exception:
+    _codepath_ingest = None; HAS_CODEPATH_INGEST = False
+
+@app.get("/codepath/ingest/status")
+def codepath_ingest_status():
+    if not HAS_CODEPATH_INGEST: return {"error":"codepath_ingest_unavailable"}
+    return _codepath_ingest.status()
+
+@app.post("/codepath/ingest/start")
+def codepath_ingest_start():
+    if not HAS_CODEPATH_INGEST: return {"error":"codepath_ingest_unavailable"}
+    _codepath_ingest.start(); return _codepath_ingest.status()
+
+@app.post("/codepath/ingest/cycle")
+def codepath_ingest_cycle():
+    if not HAS_CODEPATH_INGEST: return {"error":"codepath_ingest_unavailable"}
+    return _codepath_ingest.run_cycle()
+
+@app.get("/codepath/ingest/thought")
+def codepath_ingest_thought():
+    if not HAS_CODEPATH_INGEST: return {"error":"codepath_ingest_unavailable"}
+    p = Path.home()/".qb_protocol_node_state_of_thought.json"
+    try: return json.loads(p.read_text()) if p.exists() else {"status":"no_thought_yet"}
+    except Exception as e: return {"error": str(e)}
+
+# auto-start daemon (alive/active) when server loads
+if HAS_CODEPATH_INGEST:
+    try: _codepath_ingest.start()
+    except Exception: pass
