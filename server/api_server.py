@@ -3520,3 +3520,60 @@ def benchmark_velocity_run(body: Dict[str, Any] = Body(default={})):
     return _velocity_benchmark.run(
         start_x=int(b.get("start_x",1000)), multiplier=int(b.get("multiplier",2)),
         max_x=int(b.get("max_x",1_000_000)), max_seconds_per_scale=float(b.get("max_seconds_per_scale",1.5)))
+
+# ============ Codepath packets / driver read (allowlisted) + portal recall ============
+try:
+    from qb_protocol.ai.codepath_recall import codepath_recall as _codepath_recall
+    HAS_CODEPATH_RECALL = True
+except Exception:
+    _codepath_recall = None; HAS_CODEPATH_RECALL = False
+
+@app.get("/codepath/roots")
+def codepath_roots():
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    return {"allowed_roots": _codepath_recall.allowed_roots(), "note":"Read-only, allowlisted. Set QB_DRIVER_PATHS (os.pathsep) to add roots. No credentials."}
+
+@app.get("/codepath/list")
+def codepath_list(path: str = "", max_items: int = 200):
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    return _codepath_recall.list_path(path or (_codepath_recall.allowed_roots()[:1] or [""])[0], max_items=max_items)
+
+@app.get("/codepath/read")
+def codepath_read(path: str, max_bytes: int = 200000):
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    return _codepath_recall.read_file(path, max_bytes=max_bytes)
+
+@app.post("/codepath/packet")
+def codepath_packet(body: Dict[str, Any] = Body(...)):
+    """Build a code/data packet from allowlisted driver paths for model consumption."""
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    b = body or {}
+    pkt = _codepath_recall.build_packet(b.get("paths") or [], node_id=str(b.get("node_id","local")),
+                                        max_files=int(b.get("max_files",50)), max_bytes_per_file=int(b.get("max_bytes_per_file",120000)))
+    if b.get("store_recall", True):
+        ref = _codepath_recall.store_recall(pkt)
+        pkt["recall_ref"] = ref
+        # also store in mesh pool shared data for datapassage across nodes
+        try:
+            if HAS_MESH_POOL and _mesh_pool:
+                _mesh_pool.put_data({"key": pkt["recall_key"], "scope":"shared", "node_id": b.get("node_id"), "value": {"packet_id": pkt["packet_id"], "summary": pkt["summary"], "paths": ref["paths"], "portal_store_hint": pkt["portal_store_hint"]}})
+        except Exception: pass
+    return pkt
+
+@app.post("/codepath/recall/store")
+def codepath_recall_store(body: Dict[str, Any] = Body(...)):
+    """Store codepath ref for Vercel portal / long-term recall (credential-safe metadata)."""
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    return _codepath_recall.store_recall(body or {})
+
+@app.get("/codepath/recall/{key}")
+def codepath_recall_get(key: str):
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    v = _codepath_recall.get_recall(key)
+    if not v: raise HTTPException(status_code=404, detail="recall_not_found")
+    return v
+
+@app.get("/codepath/recall")
+def codepath_recall_list(limit: int = 100):
+    if not HAS_CODEPATH_RECALL: return {"error":"codepath_recall_unavailable"}
+    return {"refs": _codepath_recall.list_recall(limit)}
